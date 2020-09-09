@@ -38,6 +38,58 @@
 
 ```
 
+### LIKE
+
+```
+
+```
+
+### REGEXP
+
+```
+
+```
+
+### IS NULL
+
+```
+
+```
+
+### ORDER BY
+
+```
+
+```
+
+### LIMIT
+
+```
+
+```
+
+### GROUP BY
+
+```
+
+```
+
+## MySQL 连接 ( JOIN)
+
+### INNER JOIN
+
+```
+
+```
+
+### LEFT JOIN
+
+```
+
+```
+
+### RIGHT JOIN
+
 ```
 
 ```
