@@ -1,0 +1,63 @@
+# Project information
+site_name:  My Notebook
+site_description: Data Science
+site_author: xy19950225
+site_url: https://xy19950225.github.io/demo
+
+# Repository
+repo_name: '/xy19950225.github.io/demo'
+repo_url: 'https://github.com/xy19950225/xy19950225.github.io/demo'
+
+
+
+# Customization
+extra:
+  social:
+    - type: github
+      link: https://github.com/xy19950225
+
+  search:
+    language: 'ja'
+
+  disqus: 'derrors'
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+
+# Page tree
+nav:
+  - 01. Introduction: index.md
+  - 02. SQL: sql.md
+  - 03. Python:
+      - 3.1 python 基础: python.md
+      - 3.2 numpy 基础: python.md
+      - 3.3 pandas 基础: pandas.md
