@@ -12,7 +12,83 @@
 - **CREATE INDEX** - 创建索引
 - **DROP INDEX** - 删除索引
 
+## MySQL SELECT语句
 
+### WHERE 子句
+
+```
+
+```
+
+### AND OR NOT
+
+```
+
+```
+
+### IN
+
+```
+
+```
+
+### BETWEEN
+
+```
+
+```
+
+### LIKE
+
+```
+
+```
+
+### REGEXP
+
+```
+
+```
+
+### IS NULL
+
+```
+
+```
+
+### ORDER BY
+
+```
+
+```
+
+### LIMIT
+
+```
+
+```
+
+### GROUP BY
+
+```
+
+```
+
+## MySQL 连接 ( JOIN)
+
+### INNER JOIN
+
+```
+
+```
+
+### LEFT JOIN
+
+```
+
+```
+
+### RIGHT JOIN
 
 ```
 
