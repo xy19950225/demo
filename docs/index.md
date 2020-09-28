@@ -1,35 +1,75 @@
-## 主要内容
+## 前言
 
-> **SQL**
+本文记录总结个人学习过程（学习路线，啃书笔记，项目实践），不定时更新，仅供参考
 
-- `SQL` 指结构化查询语言 (Structured Query Language).
+- 学习背景：2020年2月份离职，同年5月到达北京，同年7月开始学习，中间走过不少弯路，学前零基础，只熟悉Excel，了解一点VBA
 
-- `RDBMS` 指关系型数据库管理系统 (Relational Database Management System).
-- `MySQL` 是最流行的关系型数据库管理系统 (RDBMS).
+- 学习感悟：一个人可以走的很快，一群人可以走的更远（找到一群志同道合的朋友一起讨论问题，吹水聊天）
 
-> **Python**
+- 学习原则：交叉互补，死磕到底，善于提问，不断练习
+
+- 学习目标：在计划内掌握SQL，Python，ML，期望找到一份数据分析方向的工作
+
+- 学习规划：短期目标是数据分析，长期目标是机器学习算法
 
 
-- `python` - Python 是一门高层次的结合了解释性、编译性、互动性和面向对象的脚本语言.
-- `numpy` - NumPy (Numerical Python) 是 Python 语言的一个扩展程序库，提供高性能的数组和矩阵运算, 此外也针对数组运算提供大量的数学函数库. 内部解除了 Python 的 PIL (全局解释器锁), 运算效率极好, 是大量机器学习框架的基础库.
-- `pandas` - Pandas (Python data analysis) 是一个强大的分析结构化数据的工具集，它的使用基础是Numpy；用于数据挖掘和数据分析，同时也提供数据清洗功能. 
-- `matplotlib` - Matplotlib 是最流行的 Python 2D 绘图库.
-- `scipy` -  SciPy（Scientific Python）是一组专门解决科学计算中各种标准问题域的包的集合.
-- `scikit-learn` - python 的通用机器学习工具包.
+## 学习建议
 
-> **Machine Learning**
+- Make English as your working language. （让英语成为你的工作语言）
+- Practice makes perfect. （熟能生巧）
+- All experience comes from mistakes. （所有的经验都源于你犯过的错误）
+- Don't be one of the leeches. （不要当伸手党）
+- Either outstanding or out. （要么出众，要么出局）
 
-123
+## 学习内容
 
-> **Deep Learning**
+- SQL
 
-123
+- Python
 
-## 相关链接
+- ML
 
-- mysql 官网：https://www.mysql.com/
-- python 官网：https://www.python.org/
-- numpy 官网： http://www.numpy.org/
-- pandas 官网：https://pandas.pydata.org/
-- scipy 官网：https://www.scipy.org/
-- matplotlib 官网：https://matplotlib.org/
+
+## 开发环境
+
+### SQL开发环境
+
+- [**MySQL Community Edition**](https://www.mysql.com/products/community/)
+
+### Python开发环境
+
+- [**Anaconda**](https://www.anaconda.com/)
+
+## 推荐网站
+
+- [**Google**](https://google.com) 
+
+这个大家都知道就不用介绍了，国内无法访问需翻墙
+
+- [**Github**](https://link.zhihu.com/?target=https%3A//github.com/) 
+
+全球最大的程序员代码托管平台和开源社区，有很多优质的开源项目
+
+（俗称：全球最大同性交友网站）
+
+- [**Stack Overflow**](https://link.zhihu.com/?target=https%3A//stackoverflow.com/) 
+
+IT技术问答网站，能解决你在coding中99%的问题 
+
+- [**Kaggle**](https://www.kaggle.com/) 
+
+全球知名的数据建模和数据分析竞赛平台
+
+（吐槽：Kaggle Titanic 生存预测等诸多网红级项目已经被写烂了）
+
+- **[B站](bilibili.com)**  
+
+国内知名的在线视频网站，学习视频资源非常丰富，建议配合书籍学习
+
+（俗称：B站大学）
+
+- [**菜鸟教程**](https://www.runoob.com/) 
+
+国内技术教程网站，质量见仁见智，比较适合新手入门和后期查阅，新手学习建议配合其他教程
+
+（吐槽：网站名莫不是在针对我？）
