@@ -1,0 +1,1999 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="xy19950225 的学习笔记">
+      
+      
+        <link rel="canonical" href="https://xy19950225.github.io/SQL%E7%BB%83%E4%B9%A0_%E7%89%9B%E5%AE%A2%E7%BD%91/">
+      
+      
+        <meta name="author" content="xy19950225">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>2.4 SQL练习_牛客网 - My Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546d78">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://xy19950225.github.io/" title="My Notebook" class="md-header-nav__button md-logo" aria-label="My Notebook">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Notebook
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              2.4 SQL练习_牛客网
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/xy19950225/demo/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /xy19950225/demo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://xy19950225.github.io/" title="My Notebook" class="md-nav__button md-logo" aria-label="My Notebook">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    My Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/xy19950225/demo/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /xy19950225/demo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="01. Introduction" class="md-nav__link">
+      01. Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      02. SQL
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="02. SQL" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        02. SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="2.1 SQL学习路线" class="md-nav__link">
+      2.1 SQL学习路线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" title="2.2 SQL必知必会" class="md-nav__link">
+      2.2 SQL必知必会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL_Basics/" title="2.3 SQL Basics" class="md-nav__link">
+      2.3 SQL Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2.4 SQL练习_牛客网
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="2.4 SQL练习_牛客网" class="md-nav__link md-nav__link--active">
+      2.4 SQL练习_牛客网
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    入门
+  </a>
+  
+    <nav class="md-nav" aria-label="入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    01 查找最晚入职员工的所有信息
+  </a>
+  
+    <nav class="md-nav" aria-label="01 查找最晚入职员工的所有信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    简单
+  </a>
+  
+    <nav class="md-nav" aria-label="简单">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    64  找到每个人的任务
+  </a>
+  
+    <nav class="md-nav" aria-label="64  找到每个人的任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-last_namefirst_name" class="md-nav__link">
+    04 查找所有已经分配部门的员工的last_name和first_name
+  </a>
+  
+    <nav class="md-nav" aria-label="04 查找所有已经分配部门的员工的last_name和first_name">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    72 考试分数(一)
+  </a>
+  
+    <nav class="md-nav" aria-label="72 考试分数(一)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02" class="md-nav__link">
+    02 查找入职员工时间排名倒数第三的员工所有信息
+  </a>
+  
+    <nav class="md-nav" aria-label="02 查找入职员工时间排名倒数第三的员工所有信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-manageremp_no" class="md-nav__link">
+    10 获取所有非manager的员工emp_no
+  </a>
+  
+    <nav class="md-nav" aria-label="10 获取所有非manager的员工emp_no">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    中等
+  </a>
+  
+    <nav class="md-nav" aria-label="中等">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#03-dept_no" class="md-nav__link">
+    03 查找各个部门当前领导当前薪水详情以及其对应部门编号dept_no
+  </a>
+  
+    <nav class="md-nav" aria-label="03 查找各个部门当前领导当前薪水详情以及其对应部门编号dept_no">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12 获取所有部门中当前员工薪水最高的相关信息
+  </a>
+  
+    <nav class="md-nav" aria-label="12 获取所有部门中当前员工薪水最高的相关信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-salaryavg_salary" class="md-nav__link">
+    54  查找排除当前最大、最小salary之后的员工的平均工资avg_salary
+  </a>
+  
+    <nav class="md-nav" aria-label="54  查找排除当前最大、最小salary之后的员工的平均工资avg_salary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-auditemp_noemployees_testid" class="md-nav__link">
+    46 在audit表上创建外键约束，其emp_no对应employees_test表的主键id
+  </a>
+  
+    <nav class="md-nav" aria-label="46 在audit表上创建外键约束，其emp_no对应employees_test表的主键id">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-actor" class="md-nav__link">
+    33 创建一个actor表，包含如下列信息
+  </a>
+  
+    <nav class="md-nav" aria-label="33 创建一个actor表，包含如下列信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    困难
+  </a>
+  
+    <nav class="md-nav" aria-label="困难">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    65  异常的邮件概率
+  </a>
+  
+    <nav class="md-nav" aria-label="65  异常的邮件概率">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-robot" class="md-nav__link">
+    28 查找描述信息中包括robot的电影对应的分类名称以及电影数目
+  </a>
+  
+    <nav class="md-nav" aria-label="28 查找描述信息中包括robot的电影对应的分类名称以及电影数目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    71  牛客每个人最近的登录日期(六)
+  </a>
+  
+    <nav class="md-nav" aria-label="71  牛客每个人最近的登录日期(六)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    74  考试分数(三)
+  </a>
+  
+    <nav class="md-nav" aria-label="74  考试分数(三)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    21  查找所有员工自入职以来的薪水涨幅情况
+  </a>
+  
+    <nav class="md-nav" aria-label="21  查找所有员工自入职以来的薪水涨幅情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL%E7%BB%83%E4%B9%A0_%E5%8A%9B%E6%89%A3/" title="2.5 SQL练习_力扣" class="md-nav__link">
+      2.5 SQL练习_力扣
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      03. Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="03. Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        03. Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="3.1 Python学习路线" class="md-nav__link">
+      3.1 Python学习路线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%88%A9%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="3.2 利用Python进行数据分析" class="md-nav__link">
+      3.2 利用Python进行数据分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python_Basics/" title="3.3 Python Basics" class="md-nav__link">
+      3.3 Python Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NumPy_Basics/" title="3.4 NumPy Basics" class="md-nav__link">
+      3.4 NumPy Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pandas_Basics/" title="3.5 Pandas Basics" class="md-nav__link">
+      3.5 Pandas Basics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      04. Machine Learning
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="04. Machine Learning" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        04. Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ML%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="4.1 ML学习路线" class="md-nav__link">
+      4.1 ML学习路线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ML%E7%90%86%E8%AE%BA/" title="4.2 ML理论" class="md-nav__link">
+      4.2 ML理论
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ML%E5%AE%9E%E6%88%98/" title="4.3 ML实战" class="md-nav__link">
+      4.3 ML实战
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    入门
+  </a>
+  
+    <nav class="md-nav" aria-label="入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    01 查找最晚入职员工的所有信息
+  </a>
+  
+    <nav class="md-nav" aria-label="01 查找最晚入职员工的所有信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    简单
+  </a>
+  
+    <nav class="md-nav" aria-label="简单">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    64  找到每个人的任务
+  </a>
+  
+    <nav class="md-nav" aria-label="64  找到每个人的任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-last_namefirst_name" class="md-nav__link">
+    04 查找所有已经分配部门的员工的last_name和first_name
+  </a>
+  
+    <nav class="md-nav" aria-label="04 查找所有已经分配部门的员工的last_name和first_name">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    72 考试分数(一)
+  </a>
+  
+    <nav class="md-nav" aria-label="72 考试分数(一)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02" class="md-nav__link">
+    02 查找入职员工时间排名倒数第三的员工所有信息
+  </a>
+  
+    <nav class="md-nav" aria-label="02 查找入职员工时间排名倒数第三的员工所有信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-manageremp_no" class="md-nav__link">
+    10 获取所有非manager的员工emp_no
+  </a>
+  
+    <nav class="md-nav" aria-label="10 获取所有非manager的员工emp_no">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    中等
+  </a>
+  
+    <nav class="md-nav" aria-label="中等">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#03-dept_no" class="md-nav__link">
+    03 查找各个部门当前领导当前薪水详情以及其对应部门编号dept_no
+  </a>
+  
+    <nav class="md-nav" aria-label="03 查找各个部门当前领导当前薪水详情以及其对应部门编号dept_no">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12 获取所有部门中当前员工薪水最高的相关信息
+  </a>
+  
+    <nav class="md-nav" aria-label="12 获取所有部门中当前员工薪水最高的相关信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-salaryavg_salary" class="md-nav__link">
+    54  查找排除当前最大、最小salary之后的员工的平均工资avg_salary
+  </a>
+  
+    <nav class="md-nav" aria-label="54  查找排除当前最大、最小salary之后的员工的平均工资avg_salary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-auditemp_noemployees_testid" class="md-nav__link">
+    46 在audit表上创建外键约束，其emp_no对应employees_test表的主键id
+  </a>
+  
+    <nav class="md-nav" aria-label="46 在audit表上创建外键约束，其emp_no对应employees_test表的主键id">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-actor" class="md-nav__link">
+    33 创建一个actor表，包含如下列信息
+  </a>
+  
+    <nav class="md-nav" aria-label="33 创建一个actor表，包含如下列信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    困难
+  </a>
+  
+    <nav class="md-nav" aria-label="困难">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    65  异常的邮件概率
+  </a>
+  
+    <nav class="md-nav" aria-label="65  异常的邮件概率">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-robot" class="md-nav__link">
+    28 查找描述信息中包括robot的电影对应的分类名称以及电影数目
+  </a>
+  
+    <nav class="md-nav" aria-label="28 查找描述信息中包括robot的电影对应的分类名称以及电影数目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    71  牛客每个人最近的登录日期(六)
+  </a>
+  
+    <nav class="md-nav" aria-label="71  牛客每个人最近的登录日期(六)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    74  考试分数(三)
+  </a>
+  
+    <nav class="md-nav" aria-label="74  考试分数(三)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    21  查找所有员工自入职以来的薪水涨幅情况
+  </a>
+  
+    <nav class="md-nav" aria-label="21  查找所有员工自入职以来的薪水涨幅情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    解题方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/xy19950225/demo/edit/master/docs/SQL练习_牛客网.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>2.4 SQL练习_牛客网</h1>
+                
+                <h2 id="_1">前言</h2>
+<p>SQL题库选自牛客网，按照题目难易程度划分为入门-简单-中等-困难，前期随机练习，后期按照通过率降序排序，选取通过率最低的前5题巩固练习成果</p>
+<blockquote>
+<p>感悟：仔细审题非常非常关键，具体问题具体分析，没有绝对的对错，只有寻找彼此相互的认同
+</p>
+</blockquote>
+<h2 id="_2">入门</h2>
+<h3 id="01">01 <a href="https://www.nowcoder.com/practice/218ae58dfdcd4af195fff264e062138f?tpId=82&amp;&amp;tqId=29753&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">查找最晚入职员工的所有信息</a></h3>
+<h4 id="_3">题目描述</h4>
+<p>查找最晚入职员工的所有信息，为了减轻入门难度，目前所有的数据里员工入职的日期都不是同一天(sqlite里面的注释为--,mysql为comment)</p>
+<pre><code>CREATE TABLE `employees` (
+`emp_no` int(11) NOT NULL,  -- '员工编号'
+`birth_date` date NOT NULL,
+`first_name` varchar(14) NOT NULL,
+`last_name` varchar(16) NOT NULL,
+`gender` char(1) NOT NULL,
+`hire_date` date NOT NULL,
+PRIMARY KEY (`emp_no`));
+</code></pre>
+
+<h4 id="_4">解题方法</h4>
+<pre><code># 方法一：LIMIT 
+SELECT *
+FROM employees
+ORDER BY hire_date DESC
+LIMIT 0,1；
+</code></pre>
+
+<pre><code># 方法二：子查询 适用于存在多个员工入职同时达到最晚一天的情况，泛用性更好
+## =和子查询
+SELECT *
+FROM employees
+WHERE hire_date =
+(
+SELECT MAX(hire_date) 
+FROM employees
+)；
+
+## IN和子查询
+SELECT *
+FROM employees
+WHERE hire_date IN
+(
+SELECT MAX(hire_date) 
+FROM employees
+);
+</code></pre>
+
+<h2 id="_5">简单</h2>
+<h3 id="64">64  <a href="https://www.nowcoder.com/practice/9dd9182d029a4f1d8c1324b63fc719c9?tpId=82&amp;&amp;tqId=35081&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">找到每个人的任务</a></h3>
+<h4 id="_6">题目描述</h4>
+<p>有一个person表，主键是id，如下:</p>
+<p><img alt="img" src="https://uploadfiles.nowcoder.com/images/20200813/557336_1597308809115_59865103D43294F21EB0E6AA59EE2533" /></p>
+<p>有一个任务(task)表如下，主键也是id，如下:</p>
+<p><img alt="img" src="https://uploadfiles.nowcoder.com/images/20200813/557336_1597308818265_982AA463886BC0847F36791DBF155842" /></p>
+<p>请你找到每个人的任务情况，并且输出出来，没有任务的也要输出，而且输出结果按照person的id升序排序，输出情况如下:</p>
+<p><img alt="img" src="https://uploadfiles.nowcoder.com/images/20200813/557336_1597308835496_51484617FEE1F3A5CD46EAA4F7D900CA" /></p>
+<h4 id="_7">解题方法</h4>
+<pre><code># LEFT JOIN
+SELECT 
+    p.id,
+    p.name,
+    t.content
+FROM person p 
+LEFT JOIN task t 
+ON p.id=t.person_id
+ORDER BY p.id;
+</code></pre>
+
+<h3 id="04-last_namefirst_name">04 <a href="https://www.nowcoder.com/practice/6d35b1cd593545ab985a68cd86f28671?tpId=82&amp;&amp;tqId=29756&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">查找所有已经分配部门的员工的last_name和first_name</a></h3>
+<h4 id="_8">题目描述</h4>
+<p>查找所有已经分配部门的员工的last_name和first_name以及dept_no(请注意输出描述里各个列的前后顺序)</p>
+<pre><code>CREATE TABLE `dept_emp` (
+`emp_no` int(11) NOT NULL,
+`dept_no` char(4) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`dept_no`));
+CREATE TABLE `employees` (
+`emp_no` int(11) NOT NULL,
+`birth_date` date NOT NULL,
+`first_name` varchar(14) NOT NULL,
+`last_name` varchar(16) NOT NULL,
+`gender` char(1) NOT NULL,
+`hire_date` date NOT NULL,
+PRIMARY KEY (`emp_no`));
+</code></pre>
+
+<h4 id="_9">解题方法</h4>
+<pre><code># 方法一：INNER JOIN
+SELECT 
+    e.last_name, 
+    e.first_name,
+    d.dept_no
+FROM employees e 
+JOIN dept_emp d
+USING (emp_no)；
+</code></pre>
+
+<pre><code># 方法二：LEFT JOIN
+SELECT 
+    e.last_name,
+    e.first_name,
+    d.dept_no
+FROM employees e 
+LEFT JOIN dept_emp d
+USING (emp_no)
+WHERE d.emp_no NOT NULL；
+</code></pre>
+
+<h3 id="72">72 <a href="https://www.nowcoder.com/practice/f41b94b4efce4b76b27dd36433abe398?tpId=82&amp;&amp;tqId=35492&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">考试分数(一)</a></h3>
+<h4 id="_10">题目描述</h4>
+<p>牛客每次考试完，都会有一个成绩表(grade)，如下:</p>
+<p><img alt="img" src="https://uploadfiles.nowcoder.com/images/20200919/557336_1600513881865_4F8855D8505FBEAA5F2561794CD2C0B0" /> </p>
+<p>第1行表示用户id为1的用户选择了C++岗位并且考了11001分</p>
+<p>。。。</p>
+<p>第8行表示用户id为8的用户选择了前端岗位并且考了9999分</p>
+<p>请你写一个sql语句查询各个岗位分数的平均数，并且按照分数降序排序，结果保留小数点后面3位(3位之后四舍五入):</p>
+<p><img alt="img" src="https://uploadfiles.nowcoder.com/images/20200919/557336_1600513888833_CE4B33A183934FE8410A2864D09E32E7" /> </p>
+<p>(注意: sqlite 1/2得到的不是0.5，得到的是0，只有1*1.0/2才会得到0.5，sqlite四舍五入的函数为round)</p>
+<h4 id="_11">解题方法</h4>
+<pre><code># GROUP BY
+SELECT 
+    job,
+    ROUND(AVG(score),3) avg
+FROM grade
+GROUP BY job
+ORDER BY avg DESC;
+</code></pre>
+
+<h3 id="02">02 <a href="https://www.nowcoder.com/practice/ec1ca44c62c14ceb990c3c40def1ec6c?tpId=82&amp;&amp;tqId=29754&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">查找入职员工时间排名倒数第三的员工所有信息</a></h3>
+<h4 id="_12">题目描述</h4>
+<p>查找入职员工时间排名倒数第三的员工所有信息，为了减轻入门难度，目前所有的数据里员工入职的日期都不是同一天</p>
+<pre><code>CREATE TABLE `employees` (
+`emp_no` int(11) NOT NULL,
+`birth_date` date NOT NULL,
+`first_name` varchar(14) NOT NULL,
+`last_name` varchar(16) NOT NULL,
+`gender` char(1) NOT NULL,
+`hire_date` date NOT NULL,
+PRIMARY KEY (`emp_no`));
+</code></pre>
+
+<h4 id="_13">解题方法</h4>
+<pre><code># 方法一：LIMIT
+SELECT *
+FROM employees
+ORDER BY hire_date DESC
+LIMIT 2,1;
+</code></pre>
+
+<pre><code># 方法二：子查询
+## DISTINCT去重
+SELECT * 
+FROM employees
+WHERE hire_date=
+(
+SELECT DISTINCT hire_date
+FROM employees
+ORDER BY hire_date DESC
+LIMIT 2,1
+);
+## 分组去重
+SELECT *
+FROM employees
+WHERE hire_date = 
+(
+SELECT  hire_date
+FROM employees
+GROUP BY hire_date
+ORDER BY hire_date DESC
+LIMIT 2,1
+);
+</code></pre>
+
+<h3 id="10-manageremp_no">10 <a href="https://www.nowcoder.com/practice/32c53d06443346f4a2f2ca733c19660c?tpId=82&amp;&amp;tqId=29762&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">获取所有非manager的员工emp_no</a></h3>
+<h4 id="_14">题目描述</h4>
+<pre><code>CREATE TABLE `dept_manager` (
+`dept_no` char(4) NOT NULL,
+`emp_no` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`dept_no`));
+CREATE TABLE `employees` (
+`emp_no` int(11) NOT NULL,
+`birth_date` date NOT NULL,
+`first_name` varchar(14) NOT NULL,
+`last_name` varchar(16) NOT NULL,
+`gender` char(1) NOT NULL,
+`hire_date` date NOT NULL,
+PRIMARY KEY (`emp_no`));
+
+如插入为:
+INSERT INTO dept_manager VALUES('d001',10002,'1996-08-03','9999-01-01');
+INSERT INTO dept_manager VALUES('d002',10006,'1990-08-05','9999-01-01');
+INSERT INTO dept_manager VALUES('d003',10005,'1989-09-12','9999-01-01');
+INSERT INTO dept_manager VALUES('d004',10004,'1986-12-01','9999-01-01');
+INSERT INTO dept_manager VALUES('d005',10010,'1996-11-24','2000-06-26');
+INSERT INTO dept_manager VALUES('d006',10010,'2000-06-26','9999-01-01');
+
+INSERT INTO employees VALUES(10001,'1953-09-02','Georgi','Facello','M','1986-06-26');
+INSERT INTO employees VALUES(10002,'1964-06-02','Bezalel','Simmel','F','1985-11-21');
+INSERT INTO employees VALUES(10003,'1959-12-03','Parto','Bamford','M','1986-08-28');
+INSERT INTO employees VALUES(10004,'1954-05-01','Chirstian','Koblick','M','1986-12-01');
+INSERT INTO employees VALUES(10005,'1955-01-21','Kyoichi','Maliniak','M','1989-09-12');
+INSERT INTO employees VALUES(10006,'1953-04-20','Anneke','Preusig','F','1989-06-02');
+INSERT INTO employees VALUES(10007,'1957-05-23','Tzvetan','Zielinski','F','1989-02-10');
+INSERT INTO employees VALUES(10008,'1958-02-19','Saniya','Kalloufi','M','1994-09-15');
+INSERT INTO employees VALUES(10009,'1952-04-19','Sumant','Peac','F','1985-02-18');
+INSERT INTO employees VALUES(10010,'1963-06-01','Duangkaew','Piveteau','F','1989-08-24');
+INSERT INTO employees VALUES(10011,'1953-11-07','Mary','Sluis','F','1990-01-22');
+</code></pre>
+
+<h4 id="_15">解题方法</h4>
+<p>理解上稍微有点问题，看了评论区才知道所谓主管就是有dept_no的人，d.dept_no IS NULL即非主管，感谢评论区的启发</p>
+<pre><code># 方法一：LEFT JOIN + IS NULL（貌似这种效率更高一点？）
+SELECT e.emp_no
+FROM employees e
+LEFT JOIN dept_manager d 
+USING (emp_no)
+WHERE d.dept_no IS NULL;
+</code></pre>
+
+<pre><code># 方法二：NOT IN
+SELECT e.emp_no
+FROM employees e 
+WHERE e.emp_no NOT IN 
+(
+SELECT d.emp_no
+FROM dept_manager d
+);
+</code></pre>
+
+<h2 id="_16">中等</h2>
+<h3 id="03-dept_no">03 <a href="https://www.nowcoder.com/practice/c63c5b54d86e4c6d880e4834bfd70c3b?tpId=82&amp;&amp;tqId=29755&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">查找各个部门当前领导当前薪水详情以及其对应部门编号dept_no</a></h3>
+<h4 id="_17">题目描述</h4>
+<p>查找各个部门当前(dept_manager.to_date='9999-01-01')领导当前(salaries.to_date='9999-01-01')薪水详情以及其对应部门编号dept_no
+(注:请以salaries表为主表进行查询，输出结果以salaries.emp_no升序排序，并且请注意输出结果里面dept_no列是最后一列)</p>
+<pre><code>CREATE TABLE `salaries` (
+`emp_no` int(11) NOT NULL, -- '员工编号',
+`salary` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`from_date`));
+CREATE TABLE `dept_manager` (
+`dept_no` char(4) NOT NULL, -- '部门编号'
+`emp_no` int(11) NOT NULL, --  '员工编号'
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`dept_no`));
+</code></pre>
+
+<h4 id="_18">解题方法</h4>
+<pre><code># JOIN
+SELECT 
+    s.emp_no,
+    s.salary,
+    s.from_date,
+    s.to_date,
+    d.dept_no
+FROM salaries s 
+JOIN dept_manager d 
+USING (emp_no)
+WHERE d.to_date='9999-01-01'AND s.to_date='9999-01-01';
+</code></pre>
+
+<h3 id="12">12 <a href="https://www.nowcoder.com/practice/4a052e3e1df5435880d4353eb18a91c6?tpId=82&amp;&amp;tqId=29764&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">获取所有部门中当前员工薪水最高的相关信息</a></h3>
+<h4 id="_19">题目描述</h4>
+<p>获取所有部门中当前(dept_emp.to_date = '9999-01-01')员工当前(salaries.to_date='9999-01-01')薪水最高的相关信息，给出dept_no, emp_no以及其对应的salary，按照部门升序排列。</p>
+<pre><code>CREATE TABLE `dept_emp` (
+`emp_no` int(11) NOT NULL,
+`dept_no` char(4) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`dept_no`));
+CREATE TABLE `salaries` (
+`emp_no` int(11) NOT NULL,
+`salary` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`from_date`));
+如插入：
+INSERT INTO dept_emp VALUES(10001,'d001','1986-06-26','9999-01-01');
+INSERT INTO dept_emp VALUES(10002,'d001','1996-08-03','9999-01-01');
+INSERT INTO dept_emp VALUES(10003,'d001','1996-08-03','1997-08-03');
+
+INSERT INTO salaries VALUES(10001,90000,'1986-06-26','1987-06-26');
+INSERT INTO salaries VALUES(10001,88958,'2002-06-22','9999-01-01');
+INSERT INTO salaries VALUES(10002,72527,'1996-08-03','1997-08-03');
+INSERT INTO salaries VALUES(10002,72527,'2000-08-02','2001-08-02');
+INSERT INTO salaries VALUES(10002,72527,'2001-08-02','9999-01-01');
+INSERT INTO salaries VALUES(10003,90000,'1996-08-03','1997-08-03');
+</code></pre>
+
+<h4 id="_20">解题方法</h4>
+<pre><code># 方法一：我写的虽然通过了，看过评论区感觉自己图样图森破，具体问题具体分析，先搁置，后面好好研究研究。。。
+SELECT 
+    d.dept_no,
+    d.emp_no,
+    MAX(s.salary) salary
+FROM dept_emp d 
+JOIN salaries s 
+USING (emp_no)
+WHERE d.to_date=&quot;9999-01-01&quot; AND s.to_date=&quot;9999-01-01&quot;
+GROUP BY dept_no
+ORDER BY dept_no;
+</code></pre>
+
+<h3 id="54-salaryavg_salary">54  <a href="https://www.nowcoder.com/practice/95078e5e1fba4438b85d9f11240bc591?tpId=82&amp;&amp;tqId=29822&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">查找排除当前最大、最小salary之后的员工的平均工资avg_salary</a></h3>
+<h4 id="_21">题目描述</h4>
+<p>查找排除最大、最小salary之后的当前(to_date = '9999-01-01' )员工的平均工资avg_salary。</p>
+<pre><code>
+CREATE TABLE `salaries` ( `emp_no` int(11) NOT NULL,
+`salary` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`from_date`));
+如：
+INSERT INTO salaries VALUES(10001,85097,'2001-06-22','2002-06-22');
+INSERT INTO salaries VALUES(10001,88958,'2002-06-22','9999-01-01');
+INSERT INTO salaries VALUES(10002,72527,'2001-08-02','9999-01-01');
+INSERT INTO salaries VALUES(10003,43699,'2000-12-01','2001-12-01');
+INSERT INTO salaries VALUES(10003,43311,'2001-12-01','9999-01-01');
+INSERT INTO salaries VALUES(10004,70698,'2000-11-27','2001-11-27');
+INSERT INTO salaries VALUES(10004,74057,'2001-11-27','9999-01-01');
+</code></pre>
+
+<h4 id="_22">解题方法</h4>
+<pre><code># 方法一
+SELECT AVG(salary) AS avg_salary
+FROM salaries
+WHERE to_date = '9999-01-01'
+AND salary != (SELECT MAX(salary) FROM salaries WHERE to_date = '9999-01-01')
+AND salary != (SELECT MIN(salary) FROM salaries WHERE to_date = '9999-01-01');
+</code></pre>
+
+<pre><code># 方法二
+SELECT AVG(salary) AS avg_salary
+FROM salaries
+WHERE to_date = '9999-01-01'
+AND salary NOT IN (SELECT MAX(salary) FROM salaries WHERE to_date = '9999-01-01')
+AND salary NOT IN (SELECT MIN(salary) FROM salaries WHERE to_date = '9999-01-01');
+</code></pre>
+
+<h3 id="46-auditemp_noemployees_testid">46 <a href="https://www.nowcoder.com/practice/aeaa116185f24f209ca4fa40e226de48?tpId=82&amp;&amp;tqId=29814&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">在audit表上创建外键约束，其emp_no对应employees_test表的主键id</a></h3>
+<h4 id="_23">题目描述</h4>
+<p>在audit表上创建外键约束，其emp_no对应employees_test表的主键id。
+(audit已经创建，需要先drop)</p>
+<pre><code>CREATE TABLE employees_test(
+ID INT PRIMARY KEY NOT NULL,
+NAME TEXT NOT NULL,
+AGE INT NOT NULL,
+ADDRESS CHAR(50),
+SALARY REAL
+);
+
+CREATE TABLE audit(
+EMP_no INT NOT NULL,
+create_date datetime NOT NULL
+);
+(注：创建表的时候，字段的顺序不要改变)
+</code></pre>
+
+<h4 id="_24">解题方法</h4>
+<pre><code>
+</code></pre>
+
+<h3 id="33-actor">33 <a href="https://www.nowcoder.com/practice/ac233de508ef4849b0eeb4f38dcf09cf?tpId=82&amp;&amp;tqId=29801&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">创建一个actor表，包含如下列信息</a></h3>
+<h4 id="_25">题目描述</h4>
+<p>创建一个actor表，包含如下列信息(注：sqlite获取系统默认时间是datetime('now','localtime'))</p>
+<table>
+<thead>
+<tr>
+<th align="left">列表</th>
+<th align="left">类型</th>
+<th align="left">是否为NULL</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">actor_id</td>
+<td align="left">smallint(5)</td>
+<td align="left">not null</td>
+<td align="left">主键id</td>
+</tr>
+<tr>
+<td align="left">first_name</td>
+<td align="left">varchar(45)</td>
+<td align="left">not null</td>
+<td align="left">名字</td>
+</tr>
+<tr>
+<td align="left">last_name</td>
+<td align="left">varchar(45)</td>
+<td align="left">not null</td>
+<td align="left">姓氏</td>
+</tr>
+<tr>
+<td align="left">last_update</td>
+<td align="left">timestamp</td>
+<td align="left">not null</td>
+<td align="left">最后更新时间，默认是系统的当前时间</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_26">解题方法</h4>
+<pre><code>
+</code></pre>
+
+<h2 id="_27">困难</h2>
+<h3 id="65">65  <a href="https://www.nowcoder.com/practice/d6dd656483b545159d3aa89b4c26004e?tpId=82&amp;&amp;tqId=35083&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">异常的邮件概率</a></h3>
+<h4 id="_28">题目描述</h4>
+<h4 id="_29">解题方法</h4>
+<h3 id="28-robot">28 <a href="https://www.nowcoder.com/practice/3a303a39cc40489b99a7e1867e6507c5?tpId=82&amp;&amp;tqId=29780&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">查找描述信息中包括robot的电影对应的分类名称以及电影数目</a></h3>
+<h4 id="_30">题目描述</h4>
+<h4 id="_31">解题方法</h4>
+<h3 id="71">71  <a href="https://www.nowcoder.com/practice/572a027e52804c058e1f8b0c5e8a65b4?tpId=82&amp;&amp;tqId=35089&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">牛客每个人最近的登录日期(六)</a></h3>
+<h4 id="_32">题目描述</h4>
+<h4 id="_33">解题方法</h4>
+<h3 id="74">74  <a href="https://www.nowcoder.com/practice/b83f8b0e7e934d95a56c24f047260d91?tpId=82&amp;&amp;tqId=35494&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">考试分数(三)</a></h3>
+<h4 id="_34">题目描述</h4>
+<h4 id="_35">解题方法</h4>
+<h3 id="21">21  <a href="https://www.nowcoder.com/practice/fc7344ece7294b9e98401826b94c6ea5?tpId=82&amp;&amp;tqId=29773&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking">查找所有员工自入职以来的薪水涨幅情况</a></h3>
+<h4 id="_36">题目描述</h4>
+<h4 id="_37">解题方法</h4>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../SQL_Basics/" title="2.3 SQL Basics" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                2.3 SQL Basics
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../SQL%E7%BB%83%E4%B9%A0_%E5%8A%9B%E6%89%A3/" title="2.5 SQL练习_力扣" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                2.5 SQL练习_力扣
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 1995 - 2020 Yang Xu
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
