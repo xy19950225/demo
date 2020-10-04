@@ -998,40 +998,40 @@
                 
                   <h1>3.5 Pandas Basics</h1>
                 
-                <h2 id="pandas"><strong>Pandas 速查表</strong></h2>
+                <h2 id="pandas"><strong>Pandas 速查表</strong><a class="headerlink" href="#pandas" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vYmxvZy8xMDY3OTc3LzIwMTkwOS8xMDY3OTc3LTIwMTkwOTA4MTgzMzMyNDA2LTEzNzMzNzk3MDIucG5n.jpg" /></p>
-<h2 id="pandas-numpy"><strong>导入 Pandas 与 NumPy</strong></h2>
-<pre><code class="python">import pandas as pd
-</code></pre>
+<h2 id="pandas-numpy"><strong>导入 Pandas 与 NumPy</strong><a class="headerlink" href="#pandas-numpy" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</code></pre></div>
 
-<pre><code class="python">import numpy as np
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
 
-<h2 id="_1"><strong>生成对象</strong></h2>
-<pre><code class="python"># 用值列表生成 Series 时，Pandas 默认自动生成整数索引
-s = pd.Series([1, 3, 5, np.nan, 6, 8])
-</code></pre>
+<h2 id="_1"><strong>生成对象</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用值列表生成 Series 时，Pandas 默认自动生成整数索引</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</code></pre></div>
 
-<pre><code class="python">s
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">s</span>
+</code></pre></div>
 
-<pre><code class="python">0    1.0
-1    3.0
-2    5.0
-3    NaN
-4    6.0
-5    8.0
-dtype: float64
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="mi">0</span>    <span class="mf">1.0</span>
+<span class="mi">1</span>    <span class="mf">3.0</span>
+<span class="mi">2</span>    <span class="mf">5.0</span>
+<span class="mi">3</span>    <span class="n">NaN</span>
+<span class="mi">4</span>    <span class="mf">6.0</span>
+<span class="mi">5</span>    <span class="mf">8.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</code></pre></div>
 
-<pre><code class="python"># 用含日期时间索引与标签的 NumPy 数组生成 DataFrame
-df = pd.DataFrame(np.random.randn(6, 4), 
-                  index=pd.date_range(&quot;20200901&quot;, periods=6), 
-                  columns=list(&quot;ABCD&quot;))
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用含日期时间索引与标签的 NumPy 数组生成 DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
+                  <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;20200901&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> 
+                  <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABCD&quot;</span><span class="p">))</span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1104,17 +1104,17 @@ df = pd.DataFrame(np.random.randn(6, 4),
 </table>
 </div>
 
-<pre><code class="python"># 用 Series 字典对象生成 DataFrame
-df2 = pd.DataFrame({&quot;A&quot;:1,
-                   &quot;B&quot;:pd.Timestamp(&quot;20200901&quot;),
-                   &quot;C&quot;:pd.Series(1, index=list(range(4)), dtype=&quot;float32&quot;),
-                   &quot;D&quot;:np.array([3] * 4, dtype=&quot;int32&quot;),
-                   &quot;E&quot;:pd.Categorical([&quot;test&quot;, &quot;train&quot;, &quot;test&quot;, &quot;train&quot;]),
-                   &quot;F&quot;:&quot;foo&quot;})
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用 Series 字典对象生成 DataFrame</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                   <span class="s2">&quot;B&quot;</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;20200901&quot;</span><span class="p">),</span>
+                   <span class="s2">&quot;C&quot;</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+                   <span class="s2">&quot;D&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">),</span>
+                   <span class="s2">&quot;E&quot;</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">]),</span>
+                   <span class="s2">&quot;F&quot;</span><span class="p">:</span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
+</code></pre></div>
 
-<pre><code class="python">df2
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df2</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1183,23 +1183,25 @@ df2 = pd.DataFrame({&quot;A&quot;:1,
 </table>
 </div>
 
-<pre><code class="python"># DataFrame的列有不同数据类型
-df2.dtypes 
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame的列有不同数据类型</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">dtypes</span> 
+</code></pre></div>
 
-<pre><code>A             int64
-B    datetime64[ns]
-C           float32
-D             int32
-E          category
-F            object
-dtype: object
-</code></pre>
-<h2 id="_2"><strong>查看数据</strong></h2>
-<h3 id="_3"><strong>查看头部和尾部数据</strong></h3>
-<pre><code class="python"># 查看头部数据
-df.head()
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">A</span><span class="w">             </span><span class="n">int64</span><span class="w"></span>
+<span class="n">B</span><span class="w">    </span><span class="n">datetime64</span><span class="o">[</span><span class="n">ns</span><span class="o">]</span><span class="w"></span>
+<span class="n">C</span><span class="w">           </span><span class="n">float32</span><span class="w"></span>
+<span class="n">D</span><span class="w">             </span><span class="n">int32</span><span class="w"></span>
+<span class="n">E</span><span class="w">          </span><span class="n">category</span><span class="w"></span>
+<span class="n">F</span><span class="w">            </span><span class="k">object</span><span class="w"></span>
+<span class="nl">dtype</span><span class="p">:</span><span class="w"> </span><span class="k">object</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="_2"><strong>查看数据</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3"><strong>查看头部和尾部数据</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看头部数据</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1265,9 +1267,9 @@ df.head()
 </table>
 </div>
 
-<pre><code class="python"># 查看尾部数据
-df.tail(3)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看尾部数据</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1319,24 +1321,28 @@ df.tail(3)
 </table>
 </div>
 
-<h3 id="_4"><strong>显示索引与列名</strong></h3>
-<pre><code class="python"># 显示索引
-df.index
-</code></pre>
+<h3 id="_4"><strong>显示索引与列名</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 显示索引</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</code></pre></div>
 
-<pre><code>DatetimeIndex(['2020-09-01', '2020-09-02', '2020-09-03', '2020-09-04',
-               '2020-09-05', '2020-09-06'],
-              dtype='datetime64[ns]', freq='D')
-</code></pre>
-<pre><code class="python"># 显示列名
-df.columns
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">DatetimeIndex</span><span class="p">(</span><span class="o">[</span><span class="n">&#39;2020-09-01&#39;, &#39;2020-09-02&#39;, &#39;2020-09-03&#39;, &#39;2020-09-04&#39;,</span>
+<span class="n">               &#39;2020-09-05&#39;, &#39;2020-09-06&#39;</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">              </span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 
-<pre><code>Index(['A', 'B', 'C', 'D'], dtype='object')
-</code></pre>
-<h3 id="_5"><strong>查看数据统计摘要</strong></h3>
-<pre><code class="python">df.describe()
-</code></pre>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 显示列名</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], dtype=&#39;object&#39;)</span>
+</code></pre></div>
+
+
+<h3 id="_5"><strong>查看数据统计摘要</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1423,9 +1429,9 @@ df.columns
 </table>
 </div>
 
-<h3 id="_6"><strong>转置数据</strong></h3>
-<pre><code class="python">df.T
-</code></pre>
+<h3 id="_6"><strong>转置数据</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">T</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1494,9 +1500,9 @@ df.columns
 </table>
 </div>
 
-<h3 id="_7"><strong>按轴排序</strong></h3>
-<pre><code class="python">df.sort_index(axis=1, ascending=False)
-</code></pre>
+<h3 id="_7"><strong>按轴排序</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1569,9 +1575,9 @@ df.columns
 </table>
 </div>
 
-<h3 id="_8"><strong>按值排序</strong></h3>
-<pre><code class="python">df.sort_values(by=&quot;A&quot;, axis=0, ascending=False)
-</code></pre>
+<h3 id="_8"><strong>按值排序</strong><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1644,34 +1650,38 @@ df.columns
 </table>
 </div>
 
-<h2 id="_9"><strong>选择数据</strong></h2>
-<h3 id="_10"><strong>获取数据</strong></h3>
-<pre><code class="python">df.A
-</code></pre>
+<h2 id="_9"><strong>选择数据</strong><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10"><strong>获取数据</strong><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">A</span>
+</code></pre></div>
 
-<pre><code>2020-09-01    0.267854
-2020-09-02    0.401973
-2020-09-03   -0.526610
-2020-09-04    0.996290
-2020-09-05    0.046479
-2020-09-06   -0.186728
-Freq: D, Name: A, dtype: float64
-</code></pre>
-<pre><code class="python"># 选择单列，产生 Series，与 df.A 等效
-df[&quot;A&quot;]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">2020-09-01    0.267854</span>
+<span class="err">2020-09-02    0.401973</span>
+<span class="err">2020-09-03   -0.526610</span>
+<span class="err">2020-09-04    0.996290</span>
+<span class="err">2020-09-05    0.046479</span>
+<span class="err">2020-09-06   -0.186728</span>
+<span class="c">Freq: D, Name: A, dtype: float64</span>
+</code></pre></div>
 
-<pre><code>2020-09-01    0.267854
-2020-09-02    0.401973
-2020-09-03   -0.526610
-2020-09-04    0.996290
-2020-09-05    0.046479
-2020-09-06   -0.186728
-Freq: D, Name: A, dtype: float64
-</code></pre>
-<pre><code class="python"># 用 [ ] 切片行
-df[0:3]
-</code></pre>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 选择单列，产生 Series，与 df.A 等效</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">2020-09-01    0.267854</span>
+<span class="err">2020-09-02    0.401973</span>
+<span class="err">2020-09-03   -0.526610</span>
+<span class="err">2020-09-04    0.996290</span>
+<span class="err">2020-09-05    0.046479</span>
+<span class="err">2020-09-06   -0.186728</span>
+<span class="c">Freq: D, Name: A, dtype: float64</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 用 [ ] 切片行</span>
+<span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1723,20 +1733,22 @@ df[0:3]
 </table>
 </div>
 
-<h3 id="_11"><strong>按标签选择</strong></h3>
-<pre><code class="python"># 用标签提取一行数据
-df.loc[&quot;20200901&quot;]
-</code></pre>
+<h3 id="_11"><strong>按标签选择</strong><a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用标签提取一行数据</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;20200901&quot;</span><span class="p">]</span>
+</code></pre></div>
 
-<pre><code>A    0.267854
-B   -1.131221
-C   -0.354760
-D    2.230473
-Name: 2020-09-01 00:00:00, dtype: float64
-</code></pre>
-<pre><code class="python"># 用标签选择多列数据
-df.loc[:, [&quot;A&quot;,&quot;B&quot;]]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">A    0.267854</span>
+<span class="err">B   -1.131221</span>
+<span class="err">C   -0.354760</span>
+<span class="err">D    2.230473</span>
+<span class="c">Name: 2020-09-01 00:00:00, dtype: float64</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 用标签选择多列数据</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">]]</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1795,20 +1807,22 @@ df.loc[:, [&quot;A&quot;,&quot;B&quot;]]
 </table>
 </div>
 
-<h3 id="_12"><strong>按位置选择</strong></h3>
-<pre><code class="python"># 用整数位置选择
-df.iloc[3]
-</code></pre>
+<h3 id="_12"><strong>按位置选择</strong><a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用整数位置选择</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
 
-<pre><code>A    0.996290
-B    1.739588
-C    2.203829
-D    0.032343
-Name: 2020-09-04 00:00:00, dtype: float64
-</code></pre>
-<pre><code class="python"># 类似 NumPy用整数切片
-df.iloc[3:5, 0:2]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">A    0.996290</span>
+<span class="err">B    1.739588</span>
+<span class="err">C    2.203829</span>
+<span class="err">D    0.032343</span>
+<span class="c">Name: 2020-09-04 00:00:00, dtype: float64</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 类似 NumPy用整数切片</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1847,10 +1861,10 @@ df.iloc[3:5, 0:2]
 </table>
 </div>
 
-<h3 id="_13"><strong>布尔索引</strong></h3>
-<pre><code class="python"># 用单列的值选择数据
-df[df[&quot;A&quot;] &gt; 0]
-</code></pre>
+<h3 id="_13"><strong>布尔索引</strong><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用单列的值选择数据</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1909,9 +1923,9 @@ df[df[&quot;A&quot;] &gt; 0]
 </table>
 </div>
 
-<pre><code class="python"># 选择 DataFrame里满足条件的值
-df[df &gt; 0]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># 选择 DataFrame里满足条件的值</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -1984,27 +1998,29 @@ df[df &gt; 0]
 </table>
 </div>
 
-<h3 id="_14"><strong>赋值</strong></h3>
-<pre><code class="python"># 用索引自动对齐新增列的数据
-s1 = pd.Series([1, 2, 3, 4, 5, 6], index=pd.date_range(&quot;20200901&quot;, periods=6))
-</code></pre>
+<h3 id="_14"><strong>赋值</strong><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 用索引自动对齐新增列的数据</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;20200901&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
+</code></pre></div>
 
-<pre><code class="python">s1
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">s1</span>
+</code></pre></div>
 
-<pre><code>2020-09-01    1
-2020-09-02    2
-2020-09-03    3
-2020-09-04    4
-2020-09-05    5
-2020-09-06    6
-Freq: D, dtype: int64
-</code></pre>
-<pre><code class="python">df[&quot;F&quot;] = s1
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">2020-09-01    1</span>
+<span class="err">2020-09-02    2</span>
+<span class="err">2020-09-03    3</span>
+<span class="err">2020-09-04    4</span>
+<span class="err">2020-09-05    5</span>
+<span class="err">2020-09-06    6</span>
+<span class="c">Freq: D, dtype: int64</span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2084,13 +2100,13 @@ Freq: D, dtype: int64
 </table>
 </div>
 
-<h2 id="_15"><strong>缺失值</strong></h2>
-<pre><code class="python"># 重建索引（reindex）可以更改、添加、删除指定轴的索引，并返回数据副本，即不更改原数据
-df1 = df.reindex(index=df.index[0:4], columns=list(df.columns) + [&quot;E&quot;])
-</code></pre>
+<h2 id="_15"><strong>缺失值</strong><a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 重建索引（reindex）可以更改、添加、删除指定轴的索引，并返回数据副本，即不更改原数据</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;E&quot;</span><span class="p">])</span>
+</code></pre></div>
 
-<pre><code class="python">df1
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2159,11 +2175,11 @@ df1 = df.reindex(index=df.index[0:4], columns=list(df.columns) + [&quot;E&quot;]
 </table>
 </div>
 
-<pre><code class="python">df1.loc[df.index[0]:df.index[1], &quot;E&quot;] = 1
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;E&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
 
-<pre><code class="python">df1
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2232,9 +2248,9 @@ df1 = df.reindex(index=df.index[0:4], columns=list(df.columns) + [&quot;E&quot;]
 </table>
 </div>
 
-<h3 id="_16"><strong>删除缺失值</strong></h3>
-<pre><code class="python">df1.dropna()
-</code></pre>
+<h3 id="_16"><strong>删除缺失值</strong><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2285,9 +2301,9 @@ df1 = df.reindex(index=df.index[0:4], columns=list(df.columns) + [&quot;E&quot;]
 </table>
 </div>
 
-<h3 id="_17"><strong>填充缺失值</strong></h3>
-<pre><code class="python">df1.fillna(0)
-</code></pre>
+<h3 id="_17"><strong>填充缺失值</strong><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2356,58 +2372,62 @@ df1 = df.reindex(index=df.index[0:4], columns=list(df.columns) + [&quot;E&quot;]
 </table>
 </div>
 
-<h2 id="_18"><strong>运算</strong></h2>
-<h3 id="_19"><strong>统计</strong></h3>
-<pre><code class="python"># 描述性统计
-df.mean()
-</code></pre>
+<h2 id="_18"><strong>运算</strong><a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h3 id="_19"><strong>统计</strong><a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 描述性统计</span>
+<span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
 
-<pre><code>A    0.166543
-B    0.198184
-C    0.669769
-D    0.691578
-F    3.500000
-dtype: float64
-</code></pre>
-<pre><code class="python"># Apply函数
-df.apply(lambda x: x.max() - x.min())
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">A    0.166543</span>
+<span class="err">B    0.198184</span>
+<span class="err">C    0.669769</span>
+<span class="err">D    0.691578</span>
+<span class="err">F    3.500000</span>
+<span class="c">dtype: float64</span>
+</code></pre></div>
 
-<pre><code>A    1.522901
-B    2.870809
-C    3.498024
-D    2.198130
-F    5.000000
-dtype: float64
-</code></pre>
-<h2 id="merge"><strong>合并（Merge）</strong></h2>
-<h3 id="concat"><strong>结合（Concat）</strong></h3>
-<pre><code class="python">df1 = pd.DataFrame({&quot;A&quot;: [&quot;A0&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;],
-                    &quot;B&quot;: [&quot;B0&quot;, &quot;B1&quot;, &quot;B2&quot;, &quot;B3&quot;],
-                    &quot;C&quot;: [&quot;C0&quot;, &quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;],
-                    &quot;D&quot;: [&quot;D0&quot;, &quot;D1&quot;, &quot;D2&quot;, &quot;D3&quot;]},
-                    index=[0, 1, 2, 3])
-</code></pre>
 
-<pre><code class="python">df2 = pd.DataFrame({&quot;A&quot;: [&quot;A4&quot;, &quot;A5&quot;, &quot;A6&quot;, &quot;A7&quot;],
-                    &quot;B&quot;: [&quot;B4&quot;, &quot;B5&quot;, &quot;B6&quot;, &quot;B7&quot;],
-                    &quot;C&quot;: [&quot;C4&quot;, &quot;C5&quot;, &quot;C6&quot;, &quot;C7&quot;],
-                    &quot;D&quot;: [&quot;D4&quot;, &quot;D5&quot;, &quot;D6&quot;, &quot;D7&quot;]},
-                    index=[4, 5, 6, 7])
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Apply函数</span>
+<span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+</code></pre></div>
 
-<pre><code class="python">df3 = pd.DataFrame({&quot;A&quot;: [&quot;A8&quot;, &quot;A9&quot;, &quot;A10&quot;, &quot;A11&quot;],
-                    &quot;B&quot;: [&quot;B8&quot;, &quot;B9&quot;, &quot;B10&quot;, &quot;B11&quot;],
-                    &quot;C&quot;: [&quot;C8&quot;, &quot;C9&quot;, &quot;C10&quot;, &quot;C11&quot;],
-                    &quot;D&quot;: [&quot;D8&quot;, &quot;D9&quot;, &quot;D10&quot;, &quot;D11&quot;]},
-                    index=[8, 9, 10, 11])
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">A    1.522901</span>
+<span class="err">B    2.870809</span>
+<span class="err">C    3.498024</span>
+<span class="err">D    2.198130</span>
+<span class="err">F    5.000000</span>
+<span class="c">dtype: float64</span>
+</code></pre></div>
 
-<pre><code class="python">frame = pd.concat([df1, df2, df3])
-</code></pre>
 
-<pre><code class="python">frame
-</code></pre>
+<h2 id="merge"><strong>合并（Merge）</strong><a class="headerlink" href="#merge" title="Permanent link">&para;</a></h2>
+<h3 id="concat"><strong>结合（Concat）</strong><a class="headerlink" href="#concat" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;A1&quot;</span><span class="p">,</span> <span class="s2">&quot;A2&quot;</span><span class="p">,</span> <span class="s2">&quot;A3&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B3&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="s2">&quot;C3&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D0&quot;</span><span class="p">,</span> <span class="s2">&quot;D1&quot;</span><span class="p">,</span> <span class="s2">&quot;D2&quot;</span><span class="p">,</span> <span class="s2">&quot;D3&quot;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A4&quot;</span><span class="p">,</span> <span class="s2">&quot;A5&quot;</span><span class="p">,</span> <span class="s2">&quot;A6&quot;</span><span class="p">,</span> <span class="s2">&quot;A7&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B4&quot;</span><span class="p">,</span> <span class="s2">&quot;B5&quot;</span><span class="p">,</span> <span class="s2">&quot;B6&quot;</span><span class="p">,</span> <span class="s2">&quot;B7&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C4&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&quot;</span><span class="p">,</span> <span class="s2">&quot;C6&quot;</span><span class="p">,</span> <span class="s2">&quot;C7&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D4&quot;</span><span class="p">,</span> <span class="s2">&quot;D5&quot;</span><span class="p">,</span> <span class="s2">&quot;D6&quot;</span><span class="p">,</span> <span class="s2">&quot;D7&quot;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A8&quot;</span><span class="p">,</span> <span class="s2">&quot;A9&quot;</span><span class="p">,</span> <span class="s2">&quot;A10&quot;</span><span class="p">,</span> <span class="s2">&quot;A11&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B8&quot;</span><span class="p">,</span> <span class="s2">&quot;B9&quot;</span><span class="p">,</span> <span class="s2">&quot;B10&quot;</span><span class="p">,</span> <span class="s2">&quot;B11&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C8&quot;</span><span class="p">,</span> <span class="s2">&quot;C9&quot;</span><span class="p">,</span> <span class="s2">&quot;C10&quot;</span><span class="p">,</span> <span class="s2">&quot;C11&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D8&quot;</span><span class="p">,</span> <span class="s2">&quot;D9&quot;</span><span class="p">,</span> <span class="s2">&quot;D10&quot;</span><span class="p">,</span> <span class="s2">&quot;D11&quot;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">frame</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2522,15 +2542,15 @@ dtype: float64
 </table>
 </div>
 
-<h3 id="join"><strong>连接（Join）</strong></h3>
-<pre><code class="python">left = pd.DataFrame({&quot;key&quot;: [&quot;foo&quot;, &quot;foo&quot;], &quot;lval&quot;: [1, 2]})
-</code></pre>
+<h3 id="join"><strong>连接（Join）</strong><a class="headerlink" href="#join" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">],</span> <span class="s2">&quot;lval&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+</code></pre></div>
 
-<pre><code class="python">right = pd.DataFrame({&quot;key&quot;: [&quot;foo&quot;, &quot;foo&quot;], &quot;rval&quot;: [4, 5]})
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">],</span> <span class="s2">&quot;rval&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]})</span>
+</code></pre></div>
 
-<pre><code class="python">left
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">left</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2569,8 +2589,8 @@ dtype: float64
 </table>
 </div>
 
-<pre><code class="python">right
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">right</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2609,8 +2629,8 @@ dtype: float64
 </table>
 </div>
 
-<pre><code class="python">pd.merge(left, right, on=&quot;key&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2664,12 +2684,12 @@ dtype: float64
 </table>
 </div>
 
-<h3 id="append"><strong>追加（Append）</strong></h3>
-<pre><code class="python">df = pd.DataFrame(np.random.randn(8, 4), columns=['A', 'B', 'C', 'D'])
-</code></pre>
+<h3 id="append"><strong>追加（Append）</strong><a class="headerlink" href="#append" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">])</span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2756,20 +2776,22 @@ dtype: float64
 </table>
 </div>
 
-<pre><code class="python">s = df.loc[3]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
 
-<pre><code class="python">s
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">s</span>
+</code></pre></div>
 
-<pre><code>A   -0.491223
-B   -0.642262
-C    0.175682
-D    0.721095
-Name: 3, dtype: float64
-</code></pre>
-<pre><code class="python">df.append(s, ignore_index=True)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">A   -0.491223</span>
+<span class="err">B   -0.642262</span>
+<span class="err">C    0.175682</span>
+<span class="err">D    0.721095</span>
+<span class="c">Name: 3, dtype: float64</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2863,18 +2885,18 @@ Name: 3, dtype: float64
 </table>
 </div>
 
-<h2 id="group-by"><strong>分组（Group by）</strong></h2>
-<pre><code class="python">df = pd.DataFrame([(&quot;bird&quot;, &quot;Falconiformes&quot;, 389.0),
-                    (&quot;bird&quot;, &quot;Psittaciformes&quot;, 24.0),
-                    (&quot;mammal&quot;, &quot;Carnivora&quot;, 80.2),
-                    (&quot;mammal&quot;, &quot;Primates&quot;, np.nan),
-                    (&quot;mammal&quot;, &quot;Carnivora&quot;, 58)],
-                   index=[&quot;falcon&quot;, &quot;parrot&quot;, &quot;lion&quot;, &quot;monkey&quot;, &quot;leopard&quot;],
-                   columns=(&quot;class&quot;, &quot;order&quot;, &quot;max_speed&quot;))
-</code></pre>
+<h2 id="group-by"><strong>分组（Group by）</strong><a class="headerlink" href="#group-by" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([(</span><span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;Falconiformes&quot;</span><span class="p">,</span> <span class="mf">389.0</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;Psittaciformes&quot;</span><span class="p">,</span> <span class="mf">24.0</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s2">&quot;mammal&quot;</span><span class="p">,</span> <span class="s2">&quot;Carnivora&quot;</span><span class="p">,</span> <span class="mf">80.2</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s2">&quot;mammal&quot;</span><span class="p">,</span> <span class="s2">&quot;Primates&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s2">&quot;mammal&quot;</span><span class="p">,</span> <span class="s2">&quot;Carnivora&quot;</span><span class="p">,</span> <span class="mi">58</span><span class="p">)],</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;falcon&quot;</span><span class="p">,</span> <span class="s2">&quot;parrot&quot;</span><span class="p">,</span> <span class="s2">&quot;lion&quot;</span><span class="p">,</span> <span class="s2">&quot;monkey&quot;</span><span class="p">,</span> <span class="s2">&quot;leopard&quot;</span><span class="p">],</span>
+                   <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;order&quot;</span><span class="p">,</span> <span class="s2">&quot;max_speed&quot;</span><span class="p">))</span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2934,8 +2956,8 @@ Name: 3, dtype: float64
 </table>
 </div>
 
-<pre><code class="python">df.groupby(by=[&quot;class&quot;, &quot;order&quot;]).sum()
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;order&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -2987,23 +3009,23 @@ Name: 3, dtype: float64
 </table>
 </div>
 
-<h2 id="reshaping"><strong>重塑（Reshaping）</strong></h2>
-<h3 id="stack"><strong>堆叠（Stack）</strong></h3>
+<h2 id="reshaping"><strong>重塑（Reshaping）</strong><a class="headerlink" href="#reshaping" title="Permanent link">&para;</a></h2>
+<h3 id="stack"><strong>堆叠（Stack）</strong><a class="headerlink" href="#stack" title="Permanent link">&para;</a></h3>
 <p><img alt="image.png" src="https://pandas.pydata.org/pandas-docs/stable/_images/reshaping_stack.png" /></p>
-<pre><code class="python">tuples = list(zip(*[[&quot;bar&quot;, &quot;bar&quot;, &quot;baz&quot;, &quot;baz&quot;,
-                    &quot;foo&quot;, &quot;foo&quot;, &quot;qux&quot;, &quot;qux&quot;],
-                    [&quot;one&quot;, &quot;two&quot;, &quot;one&quot;, &quot;two&quot;,
-                    &quot;one&quot;, &quot;two&quot;, &quot;one&quot;, &quot;two&quot;]]))
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">tuples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">],</span>
+                    <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]]))</span>
+</code></pre></div>
 
-<pre><code class="python">index = pd.MultiIndex.from_tuples(tuples, names=[&quot;first&quot;, &quot;second&quot;])
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">tuples</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">])</span>
+</code></pre></div>
 
-<pre><code class="python">df = pd.DataFrame(np.random.randn(8, 2), index=index, columns=[&quot;A&quot;, &quot;B&quot;])
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">])</span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -3083,87 +3105,11 @@ Name: 3, dtype: float64
 </table>
 </div>
 
-<pre><code class="python">df2 = df[:4]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
 
-<pre><code class="python">df2
-</code></pre>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>A</th>
-      <th>B</th>
-    </tr>
-    <tr>
-      <th>first</th>
-      <th>second</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="2" valign="top">bar</th>
-      <th>one</th>
-      <td>1.457984</td>
-      <td>0.864189</td>
-    </tr>
-    <tr>
-      <th>two</th>
-      <td>1.808289</td>
-      <td>1.558983</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">baz</th>
-      <th>one</th>
-      <td>1.388420</td>
-      <td>-0.746224</td>
-    </tr>
-    <tr>
-      <th>two</th>
-      <td>0.215613</td>
-      <td>1.050263</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<pre><code class="python">stacked = df2.stack()
-</code></pre>
-
-<pre><code class="python">stacked
-</code></pre>
-
-<pre><code>first  second   
-bar    one     A    1.457984
-               B    0.864189
-       two     A    1.808289
-               B    1.558983
-baz    one     A    1.388420
-               B   -0.746224
-       two     A    0.215613
-               B    1.050263
-dtype: float64
-</code></pre>
-<pre><code class="python">stacked.unstack()
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df2</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -3221,21 +3167,99 @@ dtype: float64
 </table>
 </div>
 
-<h2 id="pivot-tables"><strong>数据透视表（Pivot Tables）</strong></h2>
-<pre><code class="python">import datetime
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">stacked</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+</code></pre></div>
 
-<pre><code class="python">df = pd.DataFrame({&quot;A&quot;: [&quot;one&quot;, &quot;one&quot;, &quot;two&quot;, &quot;three&quot;] * 3,
-                   &quot;B&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;] * 4,
-                   &quot;C&quot;: [&quot;foo&quot;, &quot;foo&quot;, &quot;foo&quot;, &quot;bar&quot;, &quot;bar&quot;, &quot;bar&quot;] * 2,
-                   &quot;D&quot;: np.random.randn(12),
-                   &quot;E&quot;: np.random.randn(12),
-                   &quot;F&quot;:[datetime.datetime(2020, i, 1) for i in range(1, 7)]
-                    + [datetime.datetime(2020, i, 15) for i in range(1, 7)]})
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">stacked</span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">first  second   </span>
+<span class="err">bar    one     A    1.457984</span>
+<span class="err">               B    0.864189</span>
+<span class="err">       two     A    1.808289</span>
+<span class="err">               B    1.558983</span>
+<span class="err">baz    one     A    1.388420</span>
+<span class="err">               B   -0.746224</span>
+<span class="err">       two     A    0.215613</span>
+<span class="err">               B    1.050263</span>
+<span class="c">dtype: float64</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">stacked</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+    <tr>
+      <th>first</th>
+      <th>second</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bar</th>
+      <th>one</th>
+      <td>1.457984</td>
+      <td>0.864189</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>1.808289</td>
+      <td>1.558983</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">baz</th>
+      <th>one</th>
+      <td>1.388420</td>
+      <td>-0.746224</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.215613</td>
+      <td>1.050263</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="pivot-tables"><strong>数据透视表（Pivot Tables）</strong><a class="headerlink" href="#pivot-tables" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span>
+                   <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
+                   <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+                   <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+                   <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+                   <span class="s2">&quot;F&quot;</span><span class="p">:[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+                    <span class="o">+</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]})</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -3376,8 +3400,8 @@ dtype: float64
 </table>
 </div>
 
-<pre><code class="python">pd.pivot_table(df, values=&quot;D&quot;, index=[&quot;A&quot;, &quot;B&quot;], columns=[&quot;C&quot;])
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">])</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -3461,24 +3485,26 @@ dtype: float64
 </table>
 </div>
 
-<h2 id="timeseries"><strong>时间序列（TimeSeries）</strong></h2>
-<pre><code class="python">rng = pd.date_range(&quot;1/1/2020&quot;, periods=10, freq=&quot;M&quot;)
-</code></pre>
+<h2 id="timeseries"><strong>时间序列（TimeSeries）</strong><a class="headerlink" href="#timeseries" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;1/1/2020&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">)</span>
+</code></pre></div>
 
-<pre><code class="python">rng
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">rng</span>
+</code></pre></div>
 
-<pre><code>DatetimeIndex(['2020-01-31', '2020-02-29', '2020-03-31', '2020-04-30',
-               '2020-05-31', '2020-06-30', '2020-07-31', '2020-08-31',
-               '2020-09-30', '2020-10-31'],
-              dtype='datetime64[ns]', freq='M')
-</code></pre>
-<h2 id="categoricals"><strong>类别型（Categoricals）</strong></h2>
-<pre><code class="python">df = pd.DataFrame({&quot;A&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;]})
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">DatetimeIndex</span><span class="p">(</span><span class="o">[</span><span class="n">&#39;2020-01-31&#39;, &#39;2020-02-29&#39;, &#39;2020-03-31&#39;, &#39;2020-04-30&#39;,</span>
+<span class="n">               &#39;2020-05-31&#39;, &#39;2020-06-30&#39;, &#39;2020-07-31&#39;, &#39;2020-08-31&#39;,</span>
+<span class="n">               &#39;2020-09-30&#39;, &#39;2020-10-31&#39;</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">              </span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+
+<h2 id="categoricals"><strong>类别型（Categoricals）</strong><a class="headerlink" href="#categoricals" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]})</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
@@ -3522,11 +3548,11 @@ dtype: float64
 </table>
 </div>
 
-<pre><code class="python"> df[&quot;B&quot;] = df[&quot;A&quot;].astype(&quot;category&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+</code></pre></div>
 
-<pre><code class="python">df
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
 
 <div>
 <style scoped>
