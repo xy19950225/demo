@@ -1,59 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://xy19950225.github.io/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/SQL%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/sql-sql%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/sql-sql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/SQL_Basics/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/sql-sql-basics/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/SQL%E7%BB%83%E4%B9%A0_%E7%89%9B%E5%AE%A2%E7%BD%91/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/sql-sql%E7%BB%83%E4%B9%A0/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/SQL%E7%BB%83%E4%B9%A0_%E5%8A%9B%E6%89%A3/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/python-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/Python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/python-%E5%88%A9%E7%94%A8python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/%E5%88%A9%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/python-python-basics/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/Python_Basics/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/python-numpy-basics/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/NumPy_Basics/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/python-pandas-basics/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/Pandas_Basics/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/ml-ml%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/ML%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/ml-ml%E7%90%86%E8%AE%BA/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://xy19950225.github.io/ML%E7%90%86%E8%AE%BA/</loc>
-     <lastmod>2020-10-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://xy19950225.github.io/ML%E5%AE%9E%E6%88%98/</loc>
-     <lastmod>2020-10-02</lastmod>
+     <loc>https://xy19950225.github.io/ml-ml%E5%AE%9E%E6%88%98/</loc>
+     <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

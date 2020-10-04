@@ -1,0 +1,3662 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="xy19950225 的学习笔记">
+      
+      
+        <link rel="canonical" href="https://xy19950225.github.io/python-pandas-basics/">
+      
+      
+        <meta name="author" content="xy19950225">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>3.5 Pandas Basics - My Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546d78">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pandas" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://xy19950225.github.io/" title="My Notebook" class="md-header-nav__button md-logo" aria-label="My Notebook">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Notebook
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              3.5 Pandas Basics
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/xy19950225/demo/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /xy19950225/demo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://xy19950225.github.io/" title="My Notebook" class="md-nav__button md-logo" aria-label="My Notebook">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    My Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/xy19950225/demo/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    /xy19950225/demo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="01. Introduction" class="md-nav__link">
+      01. Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      02. SQL
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="02. SQL" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        02. SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sql-sql%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="2.1 SQL 学习路线" class="md-nav__link">
+      2.1 SQL 学习路线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sql-sql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" title="2.2 SQL 必知必会" class="md-nav__link">
+      2.2 SQL 必知必会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sql-sql-basics/" title="2.3 SQL Basics" class="md-nav__link">
+      2.3 SQL Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sql-sql%E7%BB%83%E4%B9%A0/" title="2.4 SQL 练习" class="md-nav__link">
+      2.4 SQL 练习
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      03. Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="03. Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        03. Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="3.1 Python 学习路线" class="md-nav__link">
+      3.1 Python 学习路线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python-%E5%88%A9%E7%94%A8python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="3.2 利用 Python 进行数据分析" class="md-nav__link">
+      3.2 利用 Python 进行数据分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python-python-basics/" title="3.3 Python Basics" class="md-nav__link">
+      3.3 Python Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python-numpy-basics/" title="3.4 NumPy Basics" class="md-nav__link">
+      3.4 NumPy Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3.5 Pandas Basics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="3.5 Pandas Basics" class="md-nav__link md-nav__link--active">
+      3.5 Pandas Basics
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    Pandas 速查表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pandas-numpy" class="md-nav__link">
+    导入 Pandas 与 NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    生成对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查看数据
+  </a>
+  
+    <nav class="md-nav" aria-label="查看数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查看头部和尾部数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    显示索引与列名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    查看数据统计摘要
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    转置数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    按轴排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    按值排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    选择数据
+  </a>
+  
+    <nav class="md-nav" aria-label="选择数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    获取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    按标签选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    按位置选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    布尔索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    赋值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    缺失值
+  </a>
+  
+    <nav class="md-nav" aria-label="缺失值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    删除缺失值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    填充缺失值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    运算
+  </a>
+  
+    <nav class="md-nav" aria-label="运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    统计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    合并（Merge）
+  </a>
+  
+    <nav class="md-nav" aria-label="合并（Merge）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concat" class="md-nav__link">
+    结合（Concat）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    连接（Join）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" class="md-nav__link">
+    追加（Append）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-by" class="md-nav__link">
+    分组（Group by）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reshaping" class="md-nav__link">
+    重塑（Reshaping）
+  </a>
+  
+    <nav class="md-nav" aria-label="重塑（Reshaping）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    堆叠（Stack）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pivot-tables" class="md-nav__link">
+    数据透视表（Pivot Tables）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeseries" class="md-nav__link">
+    时间序列（TimeSeries）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categoricals" class="md-nav__link">
+    类别型（Categoricals）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      04. Machine Learning
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="04. Machine Learning" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        04. Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ml-ml%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="4.1 ML 学习路线" class="md-nav__link">
+      4.1 ML 学习路线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ml-ml%E7%90%86%E8%AE%BA/" title="4.2 ML 理论" class="md-nav__link">
+      4.2 ML 理论
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ml-ml%E5%AE%9E%E6%88%98/" title="4.3 ML 实战" class="md-nav__link">
+      4.3 ML 实战
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    Pandas 速查表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pandas-numpy" class="md-nav__link">
+    导入 Pandas 与 NumPy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    生成对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查看数据
+  </a>
+  
+    <nav class="md-nav" aria-label="查看数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查看头部和尾部数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    显示索引与列名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    查看数据统计摘要
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    转置数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    按轴排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    按值排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    选择数据
+  </a>
+  
+    <nav class="md-nav" aria-label="选择数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    获取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    按标签选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    按位置选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    布尔索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    赋值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    缺失值
+  </a>
+  
+    <nav class="md-nav" aria-label="缺失值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    删除缺失值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    填充缺失值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    运算
+  </a>
+  
+    <nav class="md-nav" aria-label="运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    统计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    合并（Merge）
+  </a>
+  
+    <nav class="md-nav" aria-label="合并（Merge）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concat" class="md-nav__link">
+    结合（Concat）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    连接（Join）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" class="md-nav__link">
+    追加（Append）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-by" class="md-nav__link">
+    分组（Group by）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reshaping" class="md-nav__link">
+    重塑（Reshaping）
+  </a>
+  
+    <nav class="md-nav" aria-label="重塑（Reshaping）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    堆叠（Stack）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pivot-tables" class="md-nav__link">
+    数据透视表（Pivot Tables）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeseries" class="md-nav__link">
+    时间序列（TimeSeries）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categoricals" class="md-nav__link">
+    类别型（Categoricals）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/xy19950225/demo/edit/master/docs/python-pandas-basics.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>3.5 Pandas Basics</h1>
+                
+                <h2 id="pandas"><strong>Pandas 速查表</strong></h2>
+<p><img alt="" src="https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vYmxvZy8xMDY3OTc3LzIwMTkwOS8xMDY3OTc3LTIwMTkwOTA4MTgzMzMyNDA2LTEzNzMzNzk3MDIucG5n.jpg" /></p>
+<h2 id="pandas-numpy"><strong>导入 Pandas 与 NumPy</strong></h2>
+<pre><code class="python">import pandas as pd
+</code></pre>
+
+<pre><code class="python">import numpy as np
+</code></pre>
+
+<h2 id="_1"><strong>生成对象</strong></h2>
+<pre><code class="python"># 用值列表生成 Series 时，Pandas 默认自动生成整数索引
+s = pd.Series([1, 3, 5, np.nan, 6, 8])
+</code></pre>
+
+<pre><code class="python">s
+</code></pre>
+
+<pre><code class="python">0    1.0
+1    3.0
+2    5.0
+3    NaN
+4    6.0
+5    8.0
+dtype: float64
+</code></pre>
+
+<pre><code class="python"># 用含日期时间索引与标签的 NumPy 数组生成 DataFrame
+df = pd.DataFrame(np.random.randn(6, 4), 
+                  index=pd.date_range(&quot;20200901&quot;, periods=6), 
+                  columns=list(&quot;ABCD&quot;))
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+      <td>-1.042130</td>
+      <td>0.051650</td>
+    </tr>
+    <tr>
+      <th>2020-09-06</th>
+      <td>-0.186728</td>
+      <td>-1.005533</td>
+      <td>1.239826</td>
+      <td>1.058215</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python"># 用 Series 字典对象生成 DataFrame
+df2 = pd.DataFrame({&quot;A&quot;:1,
+                   &quot;B&quot;:pd.Timestamp(&quot;20200901&quot;),
+                   &quot;C&quot;:pd.Series(1, index=list(range(4)), dtype=&quot;float32&quot;),
+                   &quot;D&quot;:np.array([3] * 4, dtype=&quot;int32&quot;),
+                   &quot;E&quot;:pd.Categorical([&quot;test&quot;, &quot;train&quot;, &quot;test&quot;, &quot;train&quot;]),
+                   &quot;F&quot;:&quot;foo&quot;})
+</code></pre>
+
+<pre><code class="python">df2
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2020-09-01</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>test</td>
+      <td>foo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2020-09-01</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>train</td>
+      <td>foo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>2020-09-01</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>test</td>
+      <td>foo</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2020-09-01</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>train</td>
+      <td>foo</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python"># DataFrame的列有不同数据类型
+df2.dtypes 
+</code></pre>
+
+<pre><code>A             int64
+B    datetime64[ns]
+C           float32
+D             int32
+E          category
+F            object
+dtype: object
+</code></pre>
+<h2 id="_2"><strong>查看数据</strong></h2>
+<h3 id="_3"><strong>查看头部和尾部数据</strong></h3>
+<pre><code class="python"># 查看头部数据
+df.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+      <td>-1.042130</td>
+      <td>0.051650</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python"># 查看尾部数据
+df.tail(3)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+      <td>-1.042130</td>
+      <td>0.051650</td>
+    </tr>
+    <tr>
+      <th>2020-09-06</th>
+      <td>-0.186728</td>
+      <td>-1.005533</td>
+      <td>1.239826</td>
+      <td>1.058215</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_4"><strong>显示索引与列名</strong></h3>
+<pre><code class="python"># 显示索引
+df.index
+</code></pre>
+
+<pre><code>DatetimeIndex(['2020-09-01', '2020-09-02', '2020-09-03', '2020-09-04',
+               '2020-09-05', '2020-09-06'],
+              dtype='datetime64[ns]', freq='D')
+</code></pre>
+<pre><code class="python"># 显示列名
+df.columns
+</code></pre>
+
+<pre><code>Index(['A', 'B', 'C', 'D'], dtype='object')
+</code></pre>
+<h3 id="_5"><strong>查看数据统计摘要</strong></h3>
+<pre><code class="python">df.describe()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.166543</td>
+      <td>0.198184</td>
+      <td>0.669769</td>
+      <td>0.691578</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.524185</td>
+      <td>1.089605</td>
+      <td>1.495333</td>
+      <td>0.840421</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-0.526610</td>
+      <td>-1.131221</td>
+      <td>-1.042130</td>
+      <td>0.032343</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-0.128426</td>
+      <td>-0.646852</td>
+      <td>-0.451726</td>
+      <td>0.130316</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.157166</td>
+      <td>0.491035</td>
+      <td>0.442533</td>
+      <td>0.388393</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.368443</td>
+      <td>0.591369</td>
+      <td>1.962828</td>
+      <td>0.896279</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.455894</td>
+      <td>2.230473</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_6"><strong>转置数据</strong></h3>
+<pre><code class="python">df.T
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2020-09-01</th>
+      <th>2020-09-02</th>
+      <th>2020-09-03</th>
+      <th>2020-09-04</th>
+      <th>2020-09-05</th>
+      <th>2020-09-06</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0.267854</td>
+      <td>0.401973</td>
+      <td>-0.526610</td>
+      <td>0.996290</td>
+      <td>0.046479</td>
+      <td>-0.186728</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-1.131221</td>
+      <td>0.552876</td>
+      <td>0.429193</td>
+      <td>1.739588</td>
+      <td>0.604200</td>
+      <td>-1.005533</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>-0.354760</td>
+      <td>-0.484048</td>
+      <td>2.455894</td>
+      <td>2.203829</td>
+      <td>-1.042130</td>
+      <td>1.239826</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>2.230473</td>
+      <td>0.410471</td>
+      <td>0.366316</td>
+      <td>0.032343</td>
+      <td>0.051650</td>
+      <td>1.058215</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_7"><strong>按轴排序</strong></h3>
+<pre><code class="python">df.sort_index(axis=1, ascending=False)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>D</th>
+      <th>C</th>
+      <th>B</th>
+      <th>A</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>2.230473</td>
+      <td>-0.354760</td>
+      <td>-1.131221</td>
+      <td>0.267854</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.410471</td>
+      <td>-0.484048</td>
+      <td>0.552876</td>
+      <td>0.401973</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>0.366316</td>
+      <td>2.455894</td>
+      <td>0.429193</td>
+      <td>-0.526610</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.032343</td>
+      <td>2.203829</td>
+      <td>1.739588</td>
+      <td>0.996290</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.051650</td>
+      <td>-1.042130</td>
+      <td>0.604200</td>
+      <td>0.046479</td>
+    </tr>
+    <tr>
+      <th>2020-09-06</th>
+      <td>1.058215</td>
+      <td>1.239826</td>
+      <td>-1.005533</td>
+      <td>-0.186728</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_8"><strong>按值排序</strong></h3>
+<pre><code class="python">df.sort_values(by=&quot;A&quot;, axis=0, ascending=False)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+    </tr>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+      <td>-1.042130</td>
+      <td>0.051650</td>
+    </tr>
+    <tr>
+      <th>2020-09-06</th>
+      <td>-0.186728</td>
+      <td>-1.005533</td>
+      <td>1.239826</td>
+      <td>1.058215</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="_9"><strong>选择数据</strong></h2>
+<h3 id="_10"><strong>获取数据</strong></h3>
+<pre><code class="python">df.A
+</code></pre>
+
+<pre><code>2020-09-01    0.267854
+2020-09-02    0.401973
+2020-09-03   -0.526610
+2020-09-04    0.996290
+2020-09-05    0.046479
+2020-09-06   -0.186728
+Freq: D, Name: A, dtype: float64
+</code></pre>
+<pre><code class="python"># 选择单列，产生 Series，与 df.A 等效
+df[&quot;A&quot;]
+</code></pre>
+
+<pre><code>2020-09-01    0.267854
+2020-09-02    0.401973
+2020-09-03   -0.526610
+2020-09-04    0.996290
+2020-09-05    0.046479
+2020-09-06   -0.186728
+Freq: D, Name: A, dtype: float64
+</code></pre>
+<pre><code class="python"># 用 [ ] 切片行
+df[0:3]
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_11"><strong>按标签选择</strong></h3>
+<pre><code class="python"># 用标签提取一行数据
+df.loc[&quot;20200901&quot;]
+</code></pre>
+
+<pre><code>A    0.267854
+B   -1.131221
+C   -0.354760
+D    2.230473
+Name: 2020-09-01 00:00:00, dtype: float64
+</code></pre>
+<pre><code class="python"># 用标签选择多列数据
+df.loc[:, [&quot;A&quot;,&quot;B&quot;]]
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+    </tr>
+    <tr>
+      <th>2020-09-06</th>
+      <td>-0.186728</td>
+      <td>-1.005533</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_12"><strong>按位置选择</strong></h3>
+<pre><code class="python"># 用整数位置选择
+df.iloc[3]
+</code></pre>
+
+<pre><code>A    0.996290
+B    1.739588
+C    2.203829
+D    0.032343
+Name: 2020-09-04 00:00:00, dtype: float64
+</code></pre>
+<pre><code class="python"># 类似 NumPy用整数切片
+df.iloc[3:5, 0:2]
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_13"><strong>布尔索引</strong></h3>
+<pre><code class="python"># 用单列的值选择数据
+df[df[&quot;A&quot;] &gt; 0]
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+      <td>-1.042130</td>
+      <td>0.051650</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python"># 选择 DataFrame里满足条件的值
+df[df &gt; 0]
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.230473</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>NaN</td>
+      <td>0.410471</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>NaN</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+      <td>NaN</td>
+      <td>0.051650</td>
+    </tr>
+    <tr>
+      <th>2020-09-06</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.239826</td>
+      <td>1.058215</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_14"><strong>赋值</strong></h3>
+<pre><code class="python"># 用索引自动对齐新增列的数据
+s1 = pd.Series([1, 2, 3, 4, 5, 6], index=pd.date_range(&quot;20200901&quot;, periods=6))
+</code></pre>
+
+<pre><code class="python">s1
+</code></pre>
+
+<pre><code>2020-09-01    1
+2020-09-02    2
+2020-09-03    3
+2020-09-04    4
+2020-09-05    5
+2020-09-06    6
+Freq: D, dtype: int64
+</code></pre>
+<pre><code class="python">df[&quot;F&quot;] = s1
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2020-09-05</th>
+      <td>0.046479</td>
+      <td>0.604200</td>
+      <td>-1.042130</td>
+      <td>0.051650</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2020-09-06</th>
+      <td>-0.186728</td>
+      <td>-1.005533</td>
+      <td>1.239826</td>
+      <td>1.058215</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="_15"><strong>缺失值</strong></h2>
+<pre><code class="python"># 重建索引（reindex）可以更改、添加、删除指定轴的索引，并返回数据副本，即不更改原数据
+df1 = df.reindex(index=df.index[0:4], columns=list(df.columns) + [&quot;E&quot;])
+</code></pre>
+
+<pre><code class="python">df1
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>F</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+      <td>4</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">df1.loc[df.index[0]:df.index[1], &quot;E&quot;] = 1
+</code></pre>
+
+<pre><code class="python">df1
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>F</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+      <td>4</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_16"><strong>删除缺失值</strong></h3>
+<pre><code class="python">df1.dropna()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>F</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="_17"><strong>填充缺失值</strong></h3>
+<pre><code class="python">df1.fillna(0)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>F</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-09-01</th>
+      <td>0.267854</td>
+      <td>-1.131221</td>
+      <td>-0.354760</td>
+      <td>2.230473</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-02</th>
+      <td>0.401973</td>
+      <td>0.552876</td>
+      <td>-0.484048</td>
+      <td>0.410471</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-03</th>
+      <td>-0.526610</td>
+      <td>0.429193</td>
+      <td>2.455894</td>
+      <td>0.366316</td>
+      <td>3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-04</th>
+      <td>0.996290</td>
+      <td>1.739588</td>
+      <td>2.203829</td>
+      <td>0.032343</td>
+      <td>4</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="_18"><strong>运算</strong></h2>
+<h3 id="_19"><strong>统计</strong></h3>
+<pre><code class="python"># 描述性统计
+df.mean()
+</code></pre>
+
+<pre><code>A    0.166543
+B    0.198184
+C    0.669769
+D    0.691578
+F    3.500000
+dtype: float64
+</code></pre>
+<pre><code class="python"># Apply函数
+df.apply(lambda x: x.max() - x.min())
+</code></pre>
+
+<pre><code>A    1.522901
+B    2.870809
+C    3.498024
+D    2.198130
+F    5.000000
+dtype: float64
+</code></pre>
+<h2 id="merge"><strong>合并（Merge）</strong></h2>
+<h3 id="concat"><strong>结合（Concat）</strong></h3>
+<pre><code class="python">df1 = pd.DataFrame({&quot;A&quot;: [&quot;A0&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;],
+                    &quot;B&quot;: [&quot;B0&quot;, &quot;B1&quot;, &quot;B2&quot;, &quot;B3&quot;],
+                    &quot;C&quot;: [&quot;C0&quot;, &quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;],
+                    &quot;D&quot;: [&quot;D0&quot;, &quot;D1&quot;, &quot;D2&quot;, &quot;D3&quot;]},
+                    index=[0, 1, 2, 3])
+</code></pre>
+
+<pre><code class="python">df2 = pd.DataFrame({&quot;A&quot;: [&quot;A4&quot;, &quot;A5&quot;, &quot;A6&quot;, &quot;A7&quot;],
+                    &quot;B&quot;: [&quot;B4&quot;, &quot;B5&quot;, &quot;B6&quot;, &quot;B7&quot;],
+                    &quot;C&quot;: [&quot;C4&quot;, &quot;C5&quot;, &quot;C6&quot;, &quot;C7&quot;],
+                    &quot;D&quot;: [&quot;D4&quot;, &quot;D5&quot;, &quot;D6&quot;, &quot;D7&quot;]},
+                    index=[4, 5, 6, 7])
+</code></pre>
+
+<pre><code class="python">df3 = pd.DataFrame({&quot;A&quot;: [&quot;A8&quot;, &quot;A9&quot;, &quot;A10&quot;, &quot;A11&quot;],
+                    &quot;B&quot;: [&quot;B8&quot;, &quot;B9&quot;, &quot;B10&quot;, &quot;B11&quot;],
+                    &quot;C&quot;: [&quot;C8&quot;, &quot;C9&quot;, &quot;C10&quot;, &quot;C11&quot;],
+                    &quot;D&quot;: [&quot;D8&quot;, &quot;D9&quot;, &quot;D10&quot;, &quot;D11&quot;]},
+                    index=[8, 9, 10, 11])
+</code></pre>
+
+<pre><code class="python">frame = pd.concat([df1, df2, df3])
+</code></pre>
+
+<pre><code class="python">frame
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A8</td>
+      <td>B8</td>
+      <td>C8</td>
+      <td>D8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>A9</td>
+      <td>B9</td>
+      <td>C9</td>
+      <td>D9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A10</td>
+      <td>B10</td>
+      <td>C10</td>
+      <td>D10</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>A11</td>
+      <td>B11</td>
+      <td>C11</td>
+      <td>D11</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="join"><strong>连接（Join）</strong></h3>
+<pre><code class="python">left = pd.DataFrame({&quot;key&quot;: [&quot;foo&quot;, &quot;foo&quot;], &quot;lval&quot;: [1, 2]})
+</code></pre>
+
+<pre><code class="python">right = pd.DataFrame({&quot;key&quot;: [&quot;foo&quot;, &quot;foo&quot;], &quot;rval&quot;: [4, 5]})
+</code></pre>
+
+<pre><code class="python">left
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>lval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>foo</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>foo</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">right
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>rval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>foo</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>foo</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">pd.merge(left, right, on=&quot;key&quot;)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>lval</th>
+      <th>rval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>foo</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>foo</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>foo</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>foo</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="append"><strong>追加（Append）</strong></h3>
+<pre><code class="python">df = pd.DataFrame(np.random.randn(8, 4), columns=['A', 'B', 'C', 'D'])
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.926318</td>
+      <td>-1.110969</td>
+      <td>0.217602</td>
+      <td>-0.094516</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.349012</td>
+      <td>1.385598</td>
+      <td>-0.172996</td>
+      <td>-0.790864</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.417921</td>
+      <td>-0.004624</td>
+      <td>-0.509224</td>
+      <td>-1.550437</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.491223</td>
+      <td>-0.642262</td>
+      <td>0.175682</td>
+      <td>0.721095</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.058397</td>
+      <td>0.283183</td>
+      <td>-0.497554</td>
+      <td>0.739755</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.712672</td>
+      <td>0.628955</td>
+      <td>-0.472966</td>
+      <td>0.318093</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-0.279831</td>
+      <td>0.074890</td>
+      <td>-1.236430</td>
+      <td>0.592133</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.132221</td>
+      <td>-0.676778</td>
+      <td>-0.701541</td>
+      <td>-1.210815</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">s = df.loc[3]
+</code></pre>
+
+<pre><code class="python">s
+</code></pre>
+
+<pre><code>A   -0.491223
+B   -0.642262
+C    0.175682
+D    0.721095
+Name: 3, dtype: float64
+</code></pre>
+<pre><code class="python">df.append(s, ignore_index=True)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.926318</td>
+      <td>-1.110969</td>
+      <td>0.217602</td>
+      <td>-0.094516</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.349012</td>
+      <td>1.385598</td>
+      <td>-0.172996</td>
+      <td>-0.790864</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.417921</td>
+      <td>-0.004624</td>
+      <td>-0.509224</td>
+      <td>-1.550437</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.491223</td>
+      <td>-0.642262</td>
+      <td>0.175682</td>
+      <td>0.721095</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.058397</td>
+      <td>0.283183</td>
+      <td>-0.497554</td>
+      <td>0.739755</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.712672</td>
+      <td>0.628955</td>
+      <td>-0.472966</td>
+      <td>0.318093</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-0.279831</td>
+      <td>0.074890</td>
+      <td>-1.236430</td>
+      <td>0.592133</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.132221</td>
+      <td>-0.676778</td>
+      <td>-0.701541</td>
+      <td>-1.210815</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-0.491223</td>
+      <td>-0.642262</td>
+      <td>0.175682</td>
+      <td>0.721095</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="group-by"><strong>分组（Group by）</strong></h2>
+<pre><code class="python">df = pd.DataFrame([(&quot;bird&quot;, &quot;Falconiformes&quot;, 389.0),
+                    (&quot;bird&quot;, &quot;Psittaciformes&quot;, 24.0),
+                    (&quot;mammal&quot;, &quot;Carnivora&quot;, 80.2),
+                    (&quot;mammal&quot;, &quot;Primates&quot;, np.nan),
+                    (&quot;mammal&quot;, &quot;Carnivora&quot;, 58)],
+                   index=[&quot;falcon&quot;, &quot;parrot&quot;, &quot;lion&quot;, &quot;monkey&quot;, &quot;leopard&quot;],
+                   columns=(&quot;class&quot;, &quot;order&quot;, &quot;max_speed&quot;))
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>class</th>
+      <th>order</th>
+      <th>max_speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>falcon</th>
+      <td>bird</td>
+      <td>Falconiformes</td>
+      <td>389.0</td>
+    </tr>
+    <tr>
+      <th>parrot</th>
+      <td>bird</td>
+      <td>Psittaciformes</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>lion</th>
+      <td>mammal</td>
+      <td>Carnivora</td>
+      <td>80.2</td>
+    </tr>
+    <tr>
+      <th>monkey</th>
+      <td>mammal</td>
+      <td>Primates</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>leopard</th>
+      <td>mammal</td>
+      <td>Carnivora</td>
+      <td>58.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">df.groupby(by=[&quot;class&quot;, &quot;order&quot;]).sum()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>max_speed</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th>order</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bird</th>
+      <th>Falconiformes</th>
+      <td>389.0</td>
+    </tr>
+    <tr>
+      <th>Psittaciformes</th>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">mammal</th>
+      <th>Carnivora</th>
+      <td>138.2</td>
+    </tr>
+    <tr>
+      <th>Primates</th>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="reshaping"><strong>重塑（Reshaping）</strong></h2>
+<h3 id="stack"><strong>堆叠（Stack）</strong></h3>
+<p><img alt="image.png" src="https://pandas.pydata.org/pandas-docs/stable/_images/reshaping_stack.png" /></p>
+<pre><code class="python">tuples = list(zip(*[[&quot;bar&quot;, &quot;bar&quot;, &quot;baz&quot;, &quot;baz&quot;,
+                    &quot;foo&quot;, &quot;foo&quot;, &quot;qux&quot;, &quot;qux&quot;],
+                    [&quot;one&quot;, &quot;two&quot;, &quot;one&quot;, &quot;two&quot;,
+                    &quot;one&quot;, &quot;two&quot;, &quot;one&quot;, &quot;two&quot;]]))
+</code></pre>
+
+<pre><code class="python">index = pd.MultiIndex.from_tuples(tuples, names=[&quot;first&quot;, &quot;second&quot;])
+</code></pre>
+
+<pre><code class="python">df = pd.DataFrame(np.random.randn(8, 2), index=index, columns=[&quot;A&quot;, &quot;B&quot;])
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+    <tr>
+      <th>first</th>
+      <th>second</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bar</th>
+      <th>one</th>
+      <td>1.457984</td>
+      <td>0.864189</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>1.808289</td>
+      <td>1.558983</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">baz</th>
+      <th>one</th>
+      <td>1.388420</td>
+      <td>-0.746224</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.215613</td>
+      <td>1.050263</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">foo</th>
+      <th>one</th>
+      <td>-0.536742</td>
+      <td>0.383083</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.751930</td>
+      <td>-1.717304</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">qux</th>
+      <th>one</th>
+      <td>0.929121</td>
+      <td>-1.075260</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.238485</td>
+      <td>-1.581831</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">df2 = df[:4]
+</code></pre>
+
+<pre><code class="python">df2
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+    <tr>
+      <th>first</th>
+      <th>second</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bar</th>
+      <th>one</th>
+      <td>1.457984</td>
+      <td>0.864189</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>1.808289</td>
+      <td>1.558983</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">baz</th>
+      <th>one</th>
+      <td>1.388420</td>
+      <td>-0.746224</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.215613</td>
+      <td>1.050263</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">stacked = df2.stack()
+</code></pre>
+
+<pre><code class="python">stacked
+</code></pre>
+
+<pre><code>first  second   
+bar    one     A    1.457984
+               B    0.864189
+       two     A    1.808289
+               B    1.558983
+baz    one     A    1.388420
+               B   -0.746224
+       two     A    0.215613
+               B    1.050263
+dtype: float64
+</code></pre>
+<pre><code class="python">stacked.unstack()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+    <tr>
+      <th>first</th>
+      <th>second</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bar</th>
+      <th>one</th>
+      <td>1.457984</td>
+      <td>0.864189</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>1.808289</td>
+      <td>1.558983</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">baz</th>
+      <th>one</th>
+      <td>1.388420</td>
+      <td>-0.746224</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.215613</td>
+      <td>1.050263</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="pivot-tables"><strong>数据透视表（Pivot Tables）</strong></h2>
+<pre><code class="python">import datetime
+</code></pre>
+
+<pre><code class="python">df = pd.DataFrame({&quot;A&quot;: [&quot;one&quot;, &quot;one&quot;, &quot;two&quot;, &quot;three&quot;] * 3,
+                   &quot;B&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;] * 4,
+                   &quot;C&quot;: [&quot;foo&quot;, &quot;foo&quot;, &quot;foo&quot;, &quot;bar&quot;, &quot;bar&quot;, &quot;bar&quot;] * 2,
+                   &quot;D&quot;: np.random.randn(12),
+                   &quot;E&quot;: np.random.randn(12),
+                   &quot;F&quot;:[datetime.datetime(2020, i, 1) for i in range(1, 7)]
+                    + [datetime.datetime(2020, i, 15) for i in range(1, 7)]})
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>one</td>
+      <td>A</td>
+      <td>foo</td>
+      <td>0.613701</td>
+      <td>0.145033</td>
+      <td>2020-01-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>one</td>
+      <td>B</td>
+      <td>foo</td>
+      <td>-1.501934</td>
+      <td>-2.349162</td>
+      <td>2020-02-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>two</td>
+      <td>C</td>
+      <td>foo</td>
+      <td>-0.626282</td>
+      <td>1.619653</td>
+      <td>2020-03-01</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>three</td>
+      <td>A</td>
+      <td>bar</td>
+      <td>0.281824</td>
+      <td>-0.355017</td>
+      <td>2020-04-01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>one</td>
+      <td>B</td>
+      <td>bar</td>
+      <td>0.777277</td>
+      <td>0.141533</td>
+      <td>2020-05-01</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>one</td>
+      <td>C</td>
+      <td>bar</td>
+      <td>0.788832</td>
+      <td>1.354495</td>
+      <td>2020-06-01</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>two</td>
+      <td>A</td>
+      <td>foo</td>
+      <td>-0.182135</td>
+      <td>-0.177494</td>
+      <td>2020-01-15</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>three</td>
+      <td>B</td>
+      <td>foo</td>
+      <td>1.635379</td>
+      <td>-0.504184</td>
+      <td>2020-02-15</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>one</td>
+      <td>C</td>
+      <td>foo</td>
+      <td>1.287765</td>
+      <td>0.642662</td>
+      <td>2020-03-15</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>one</td>
+      <td>A</td>
+      <td>bar</td>
+      <td>1.534828</td>
+      <td>0.089097</td>
+      <td>2020-04-15</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>two</td>
+      <td>B</td>
+      <td>bar</td>
+      <td>0.109630</td>
+      <td>0.508206</td>
+      <td>2020-05-15</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>three</td>
+      <td>C</td>
+      <td>bar</td>
+      <td>-0.543666</td>
+      <td>-0.779394</td>
+      <td>2020-06-15</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">pd.pivot_table(df, values=&quot;D&quot;, index=[&quot;A&quot;, &quot;B&quot;], columns=[&quot;C&quot;])
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>C</th>
+      <th>bar</th>
+      <th>foo</th>
+    </tr>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">one</th>
+      <th>A</th>
+      <td>1.534828</td>
+      <td>0.613701</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>0.777277</td>
+      <td>-1.501934</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>0.788832</td>
+      <td>1.287765</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">three</th>
+      <th>A</th>
+      <td>0.281824</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>NaN</td>
+      <td>1.635379</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>-0.543666</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">two</th>
+      <th>A</th>
+      <td>NaN</td>
+      <td>-0.182135</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>0.109630</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>NaN</td>
+      <td>-0.626282</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="timeseries"><strong>时间序列（TimeSeries）</strong></h2>
+<pre><code class="python">rng = pd.date_range(&quot;1/1/2020&quot;, periods=10, freq=&quot;M&quot;)
+</code></pre>
+
+<pre><code class="python">rng
+</code></pre>
+
+<pre><code>DatetimeIndex(['2020-01-31', '2020-02-29', '2020-03-31', '2020-04-30',
+               '2020-05-31', '2020-06-30', '2020-07-31', '2020-08-31',
+               '2020-09-30', '2020-10-31'],
+              dtype='datetime64[ns]', freq='M')
+</code></pre>
+<h2 id="categoricals"><strong>类别型（Categoricals）</strong></h2>
+<pre><code class="python">df = pd.DataFrame({&quot;A&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;]})
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>a</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python"> df[&quot;B&quot;] = df[&quot;A&quot;].astype(&quot;category&quot;)
+</code></pre>
+
+<pre><code class="python">df
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>a</td>
+      <td>a</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../python-numpy-basics/" title="3.4 NumPy Basics" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                3.4 NumPy Basics
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../ml-ml%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="4.1 ML 学习路线" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                4.1 ML 学习路线
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020 - 2020 Xu's Blog.Keep it Simple and Stupid!
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
