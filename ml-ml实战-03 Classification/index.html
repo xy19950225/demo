@@ -11,7 +11,7 @@
         <meta name="description" content="xy19950225 的学习笔记">
       
       
-        <link rel="canonical" href="https://xy19950225.github.io/python-%E5%88%A9%E7%94%A8python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+        <link rel="canonical" href="https://xy19950225.github.io/ml-ml%E5%AE%9E%E6%88%98-03%20Classification/">
       
       
         <meta name="author" content="xy19950225">
@@ -21,7 +21,7 @@
     
     
       
-        <title>3.2 利用 Python 进行数据分析 - My Notebook</title>
+        <title>4.6 ML 实战 03 - My Notebook</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#mnist" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -87,7 +92,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              3.2 利用 Python 进行数据分析
+              4.6 ML 实战 03
             
           </span>
         </div>
@@ -271,12 +276,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       03. Python
@@ -306,18 +309,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="3.2 利用 Python 进行数据分析" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../python-%E5%88%A9%E7%94%A8python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="3.2 利用 Python 进行数据分析" class="md-nav__link">
       3.2 利用 Python 进行数据分析
     </a>
-    
   </li>
 
         
@@ -366,10 +362,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       04. Machine Learning
@@ -447,11 +445,72 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ml-ml%E5%AE%9E%E6%88%98-03%20Classification/" title="4.6 ML 实战 03" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.6 ML 实战 03
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="4.6 ML 实战 03" class="md-nav__link md-nav__link--active">
       4.6 ML 实战 03
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mnist" class="md-nav__link">
+    MNIST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    训练一个二分类器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    效能考核
+  </a>
+  
+    <nav class="md-nav" aria-label="效能考核">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    交叉验证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -467,12 +526,67 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mnist" class="md-nav__link">
+    MNIST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    训练一个二分类器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    效能考核
+  </a>
+  
+    <nav class="md-nav" aria-label="效能考核">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    交叉验证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/xy19950225/demo/edit/master/docs/python-利用python进行数据分析.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/xy19950225/demo/edit/master/docs/ml-ml实战-03 Classification.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -480,12 +594,124 @@
                   
                 
                 
-                  <h1>3.2 利用 Python 进行数据分析</h1>
+                  <h1>4.6 ML 实战 03</h1>
                 
-                <div class="admonition success">
-<p class="admonition-title">思维导图</p>
-</div>
-<p><img alt="img" src="https://i.loli.net/2020/09/27/IBGk5Q3SXz4Axaj.png" /></p>
+                <h2 id="mnist">MNIST<a class="headerlink" href="#mnist" title="Permanent link">&para;</a></h2>
+<p>第一步就遇到问题。。。</p>
+<p>版本问题</p>
+<p>问题描述：</p>
+<p>from sklearn.datasets import fetch_mldata</p>
+<p>ImportError: cannot import name 'fetch_mldata' from 'sklearn.datasets' </p>
+<p>解决方法：</p>
+<p>https://github.com/ageron/handson-ml/issues/529</p>
+<p>from sklearn.datasets import fetch_openml</p>
+<p>dataset = fetch_openml("mnist_784")</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 加载数据</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s2">&quot;MNIST_784&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看keys</span>
+<span class="n">mnist</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;frame&#39;, &#39;feature_names&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;details&#39;, &#39;categories&#39;, &#39;url&#39;])</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建数据集</span>
+<span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">mnist</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看数组形状 结果表示70000张图片（示例），784个特征，每个特征代表像素点的强度</span>
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">(70000, 784)</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">(70000,)</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 改变数组形状 28x28数组</span>
+<span class="n">some_digit</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">some_digit_image</span> <span class="o">=</span> <span class="n">some_digit</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 用matplotlib的imshow()函数绘图 (好烦啊，matplotlib参数真多，有没有替代的？)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">some_digit_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="png" src="output_8_0.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 验证</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;5&#39;</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 划分训练集和测试集</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="mi">60000</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">60000</span><span class="p">:],</span>  <span class="n">y</span><span class="p">[:</span><span class="mi">60000</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">60000</span><span class="p">:]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 随机采样</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">shuffle_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">60000</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">shuffle_index</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[</span><span class="n">shuffle_index</span><span class="p">]</span>
+</code></pre></div>
+
+<h2 id="_1">训练一个二分类器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>这里遇到一个问题</p>
+<p>问题描述：</p>
+<p>ValueError: The number of classes has to be greater than one; got 1 class</p>
+<p>解决方法：</p>
+<p>https://github.com/ageron/handson-ml/issues/360</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 布尔型</span>
+<span class="n">y_train_5</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_train</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">)</span>
+<span class="n">y_test_5</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span> <span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 随机梯度下降分类</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDClassifier</span>
+
+<span class="n">sgd_clf</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">sgd_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_5</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">SGDClassifier(alpha=0.0001, average=False, class_weight=None,</span>
+<span class="err">              early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,</span>
+<span class="err">              l1_ratio=0.15, learning_rate=&#39;optimal&#39;, loss=&#39;hinge&#39;,</span>
+<span class="err">              max_iter=1000, n_iter_no_change=5, n_jobs=None, penalty=&#39;l2&#39;,</span>
+<span class="err">              power_t=0.5, random_state=42, shuffle=True, tol=0.001,</span>
+<span class="err">              validation_fraction=0.1, verbose=0, warm_start=False)</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 预测</span>
+<span class="n">sgd_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">]])</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">array</span><span class="p">(</span><span class="o">[</span><span class="n">False</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="_2">效能考核<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">交叉验证<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
                 
               
               
@@ -504,7 +730,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../python-python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="3.1 Python 学习路线" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ml-ml%E5%AE%9E%E6%88%98-02%20End-to-end%20Machine%20Learning%20project/" title="4.5 ML 实战 02" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -513,25 +739,11 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                3.1 Python 学习路线
+                4.5 ML 实战 02
               </div>
             </div>
           </a>
         
-        
-          <a href="../python-python-basics/" title="3.3 Python Basics" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                3.3 Python Basics
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
