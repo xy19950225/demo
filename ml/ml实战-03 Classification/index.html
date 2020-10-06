@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="xy19950225">
+  <link rel="canonical" href="https://xy19950225.github.io/ml/ml%E5%AE%9E%E6%88%98-03%20Classification/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>4.6 ML 实战 03 - My Notebook</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "4.6 ML \u5b9e\u6218 03";
+    var mkdocs_page_input_path = "ml\\ml\u5b9e\u6218-03 Classification.md";
+    var mkdocs_page_url = "/ml/ml%E5%AE%9E%E6%88%98-03%20Classification/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Notebook</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">01. Introduction</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">02. SQL</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sql/sql%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">2.1 SQL 学习路线</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sql/sql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">2.2 SQL 必知必会</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sql/sql-basics/">2.3 SQL Basics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sql/sql%E7%BB%83%E4%B9%A0/">2.4 SQL 练习</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">03. Python</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">3.1 Python 学习路线</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/%E5%88%A9%E7%94%A8python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">3.2 利用 Python 进行数据分析</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/python-basics/">3.3 Python Basics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/numpy-basics/">3.4 NumPy Basics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/pandas-basics/">3.5 Pandas Basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">04. Machine Learning</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../ml%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">4.1 ML 学习路线</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ml%E7%90%86%E8%AE%BA/">4.2 ML 理论</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ml%E5%AE%9E%E6%88%98/">4.3 ML 实战</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ml%E5%AE%9E%E6%88%98-01%20The%20Machine%20Learning%20landscape/">4.4 ML 实战 01</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ml%E5%AE%9E%E6%88%98-02%20End-to-end%20Machine%20Learning%20project/">4.5 ML 实战 02</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">4.6 ML 实战 03</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Notebook</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>04. Machine Learning &raquo;</li>
+        
+      
+    
+    <li>4.6 ML 实战 03</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/xy19950225/demo/edit/master/docs/ml/ml实战-03 Classification.md"> Edit on /xy19950225/demo</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="mnist">MNIST<a class="headerlink" href="#mnist" title="Permanent link">&para;</a></h2>
+<p>第一步就遇到问题。。。</p>
+<p>版本问题</p>
+<p>问题描述：</p>
+<p>from sklearn.datasets import fetch_mldata</p>
+<p>ImportError: cannot import name 'fetch_mldata' from 'sklearn.datasets' </p>
+<p>解决方法：</p>
+<p>https://github.com/ageron/handson-ml/issues/529</p>
+<p>from sklearn.datasets import fetch_openml</p>
+<p>dataset = fetch_openml("mnist_784")</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 加载数据</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s2">&quot;MNIST_784&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看keys</span>
+<span class="n">mnist</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;frame&#39;, &#39;feature_names&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;details&#39;, &#39;categories&#39;, &#39;url&#39;])</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建数据集</span>
+<span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">mnist</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看数组形状 结果表示70000张图片（示例），784个特征，每个特征代表像素点的强度</span>
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">(70000, 784)</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">(70000,)</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 改变数组形状 28x28数组</span>
+<span class="n">some_digit</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">some_digit_image</span> <span class="o">=</span> <span class="n">some_digit</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 用matplotlib的imshow()函数绘图 (好烦啊，matplotlib参数真多，有没有替代的？)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">some_digit_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="png" src="output_8_0.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 验证</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;5&#39;</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 划分训练集和测试集</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="mi">60000</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">60000</span><span class="p">:],</span>  <span class="n">y</span><span class="p">[:</span><span class="mi">60000</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">60000</span><span class="p">:]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 随机采样</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">shuffle_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">60000</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">shuffle_index</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[</span><span class="n">shuffle_index</span><span class="p">]</span>
+</code></pre></div>
+
+<h2 id="_1">训练一个二分类器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>这里遇到一个问题</p>
+<p>问题描述：</p>
+<p>ValueError: The number of classes has to be greater than one; got 1 class</p>
+<p>解决方法：</p>
+<p>https://github.com/ageron/handson-ml/issues/360</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 布尔型</span>
+<span class="n">y_train_5</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_train</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">)</span>
+<span class="n">y_test_5</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span> <span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 随机梯度下降分类</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDClassifier</span>
+
+<span class="n">sgd_clf</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">sgd_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_5</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">SGDClassifier(alpha=0.0001, average=False, class_weight=None,</span>
+<span class="err">              early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,</span>
+<span class="err">              l1_ratio=0.15, learning_rate=&#39;optimal&#39;, loss=&#39;hinge&#39;,</span>
+<span class="err">              max_iter=1000, n_iter_no_change=5, n_jobs=None, penalty=&#39;l2&#39;,</span>
+<span class="err">              power_t=0.5, random_state=42, shuffle=True, tol=0.001,</span>
+<span class="err">              validation_fraction=0.1, verbose=0, warm_start=False)</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 预测</span>
+<span class="n">sgd_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="mi">8</span><span class="p">]])</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">array</span><span class="p">(</span><span class="o">[</span><span class="n">False</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="_2">效能考核<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">交叉验证<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../ml%E5%AE%9E%E6%88%98-02%20End-to-end%20Machine%20Learning%20project/" class="btn btn-neutral" title="4.5 ML 实战 02"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2020 - 2020 Xu's Blog.Keep it Simple and Stupid!</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../ml%E5%AE%9E%E6%88%98-02%20End-to-end%20Machine%20Learning%20project/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

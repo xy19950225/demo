@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="xy19950225">
+  <link rel="canonical" href="https://xy19950225.github.io/sql/sql%E7%BB%83%E4%B9%A0/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>2.4 SQL 练习 - My Notebook</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "2.4 SQL \u7ec3\u4e60";
+    var mkdocs_page_input_path = "sql\\sql\u7ec3\u4e60.md";
+    var mkdocs_page_url = "/sql/sql%E7%BB%83%E4%B9%A0/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Notebook</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">01. Introduction</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">02. SQL</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../sql%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">2.1 SQL 学习路线</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">2.2 SQL 必知必会</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sql-basics/">2.3 SQL Basics</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">2.4 SQL 练习</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">03. Python</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">3.1 Python 学习路线</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/%E5%88%A9%E7%94%A8python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">3.2 利用 Python 进行数据分析</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/python-basics/">3.3 Python Basics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/numpy-basics/">3.4 NumPy Basics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../python/pandas-basics/">3.5 Pandas Basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">04. Machine Learning</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ml/ml%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">4.1 ML 学习路线</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ml/ml%E7%90%86%E8%AE%BA/">4.2 ML 理论</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ml/ml%E5%AE%9E%E6%88%98/">4.3 ML 实战</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ml/ml%E5%AE%9E%E6%88%98-01%20The%20Machine%20Learning%20landscape/">4.4 ML 实战 01</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ml/ml%E5%AE%9E%E6%88%98-02%20End-to-end%20Machine%20Learning%20project/">4.5 ML 实战 02</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ml/ml%E5%AE%9E%E6%88%98-03%20Classification/">4.6 ML 实战 03</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Notebook</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>02. SQL &raquo;</li>
+        
+      
+    
+    <li>2.4 SQL 练习</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/xy19950225/demo/edit/master/docs/sql/sql练习.md"> Edit on /xy19950225/demo</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="_1"><strong><a href="https://leetcode-cn.com/problemset/database/?difficulty=%E7%AE%80%E5%8D%95">简单</a></strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="176">176 第二高的薪水<a class="headerlink" href="#176" title="Permanent link">&para;</a></h2>
+<h3 id="_2">题目描述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>编写一个 SQL 查询，获取 Employee 表中第二高的薪水（Salary） 。
+
++----+--------+
+| Id | Salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+例如上述 Employee 表，SQL查询应该返回 200 作为第二高的薪水。如果不存在第二高的薪水，那么查询应返回 null。
+
++---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+</code></pre></div>
+
+<h3 id="_3">解题方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">方法一：使用子查询和</span> <span class="k">LIMIT</span> <span class="err">子句</span>    <span class="o">#</span> <span class="err">此方法可适用于求第</span><span class="n">N高的薪水</span><span class="err">，且数据越复杂，速度优势越明显</span>
+<span class="k">SELECT</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">salary</span> 
+    <span class="k">FROM</span> <span class="n">employee</span>
+    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">salary</span> <span class="k">DESC</span>
+    <span class="k">LIMIT</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SecondHighestSalary</span><span class="p">;</span>
+
+<span class="err">方法二：使用</span> <span class="n">IFNULL</span> <span class="err">和</span> <span class="k">LIMIT</span> <span class="err">子句</span>
+<span class="k">SELECT</span>
+   <span class="n">IFNULL</span><span class="p">(</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">salary</span>
+    <span class="k">FROM</span> <span class="n">employee</span>
+    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">salary</span> <span class="k">DESC</span>
+    <span class="k">LIMIT</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="k">NULL</span><span class="p">)</span>  <span class="k">AS</span> <span class="n">SecondHighestSalary</span><span class="p">;</span>
+
+<span class="err">方法三：使用子查询和</span> <span class="k">MAX</span><span class="p">()</span> <span class="err">函数</span>
+<span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="k">AS</span> <span class="n">SecondHighestSalary</span>
+<span class="k">FROM</span> <span class="n">employee</span>
+<span class="k">WHERE</span> <span class="n">salary</span> <span class="o">&lt;</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+    <span class="k">FROM</span> <span class="n">employee</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="596-5">596 超过5名学生的课<a class="headerlink" href="#596-5" title="Permanent link">&para;</a></h2>
+<h3 id="_4">题目描述<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>有一个courses 表 ，有: student (学生) 和 class (课程)。
+
+请列出所有超过或等于5名学生的课。
+
+例如，表：
+
++---------+------------+
+| student | class      |
++---------+------------+
+| A       | Math       |
+| B       | English    |
+| C       | Math       |
+| D       | Biology    |
+| E       | Math       |
+| F       | Computer   |
+| G       | Math       |
+| H       | Math       |
+| I       | Math       |
++---------+------------+
+应该输出:
+
++---------+
+| class   |
++---------+
+| Math    |
++---------+
+
+
+提示：
+
+学生在每个课中不应被重复计算。
+</code></pre></div>
+
+<h3 id="_5">解题方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">方法：使用</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">和</span> <span class="k">HAVING</span> <span class="err">条件</span>
+<span class="k">SELECT</span> <span class="k">class</span>
+<span class="k">FROM</span> <span class="n">courses</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">class</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">student</span><span class="p">)</span> <span class="o">&gt;=</span><span class="mi">5</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="197">197 上升的温度<a class="headerlink" href="#197" title="Permanent link">&para;</a></h2>
+<h4 id="_6">题目描述<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>给定一个 Weather 表，编写一个 SQL 查询，来查找与之前（昨天的）日期相比温度更高的所有日期的 Id。
+
++---------+------------------+------------------+
+| Id(INT) | RecordDate(DATE) | Temperature(INT) |
++---------+------------------+------------------+
+|       1 |       2015-01-01 |               10 |
+|       2 |       2015-01-02 |               25 |
+|       3 |       2015-01-03 |               20 |
+|       4 |       2015-01-04 |               30 |
++---------+------------------+------------------+
+例如，根据上述给定的 Weather 表格，返回如下 Id:
+
++----+
+| Id |
++----+
+|  2 |
+|  4 |
++----+
+</code></pre></div>
+
+<h4 id="_7">解题方法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="err">方法一：使用</span> <span class="k">JOIN</span> <span class="err">和</span> <span class="n">DATEDIFF</span><span class="p">()</span> <span class="err">子句</span>
+<span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">id</span>
+<span class="k">FROM</span> <span class="n">weather</span> <span class="n">a</span>
+<span class="k">JOIN</span> <span class="n">weather</span> <span class="n">b</span>
+<span class="k">ON</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">recorddate</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">recorddate</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="n">temperature</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">temperature</span><span class="p">;</span>
+
+<span class="err">方法二：使用</span> <span class="k">WHERE</span> <span class="err">和</span> <span class="n">DATEDIFF</span><span class="p">()</span> <span class="err">子句</span>
+<span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span>
+<span class="k">FROM</span> <span class="n">weather</span> <span class="n">a</span><span class="p">,</span> <span class="n">weather</span> <span class="n">b</span> 
+<span class="k">WHERE</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">recorddate</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">recorddate</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span> 
+    <span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="n">temperature</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">temperature</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="_8"><strong><a href="https://leetcode-cn.com/problemset/database/?difficulty=%E4%B8%AD%E7%AD%89">中等</a></strong><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="177-n">177 第N高的薪水<a class="headerlink" href="#177-n" title="Permanent link">&para;</a></h2>
+<h4 id="_9">题目描述<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>编写一个 SQL 查询，获取 Employee 表中第 n 高的薪水（Salary）。
+
++----+--------+
+| Id | Salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+例如上述 Employee 表，n = 2 时，应返回第二高的薪水 200。如果不存在第 n 高的薪水，那么查询应返回 null。
+
++------------------------+
+| getNthHighestSalary(2) |
++------------------------+
+| 200                    |
++------------------------+
+</code></pre></div>
+
+<h4 id="_10">解题方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">FUNCTION</span> <span class="n">getNthHighestSalary</span><span class="p">(</span><span class="n">N</span> <span class="nb">INT</span><span class="p">)</span> <span class="k">RETURNS</span> <span class="nb">INT</span>
+<span class="k">BEGIN</span>
+    <span class="k">SET</span> <span class="n">N</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="k">RETURN</span> <span class="p">(</span>
+      <span class="o">#</span> <span class="k">Write</span> <span class="n">your</span> <span class="n">MySQL</span> <span class="n">query</span> <span class="k">statement</span> <span class="n">below</span><span class="p">.</span>
+      <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">salary</span> 
+      <span class="k">FROM</span> <span class="n">employee</span>
+      <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">salary</span> <span class="k">DESC</span>
+      <span class="k">LIMIT</span> <span class="n">N</span><span class="p">,</span><span class="mi">1</span>
+  <span class="p">);</span>
+<span class="k">END</span>
+</code></pre></div>
+
+<h2 id="184">184 部门工资最高的员工<a class="headerlink" href="#184" title="Permanent link">&para;</a></h2>
+<h4 id="_11">题目描述<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Employee 表包含所有员工信息，每个员工有其对应的 Id, salary 和 department Id。
+
++----+-------+--------+--------------+
+| Id | Name  | Salary | DepartmentId |
++----+-------+--------+--------------+
+| 1  | Joe   | 70000  | 1            |
+| 2  | Jim   | 90000  | 1            |
+| 3  | Henry | 80000  | 2            |
+| 4  | Sam   | 60000  | 2            |
+| 5  | Max   | 90000  | 1            |
++----+-------+--------+--------------+
+Department 表包含公司所有部门的信息。
+
++----+----------+
+| Id | Name     |
++----+----------+
+| 1  | IT       |
+| 2  | Sales    |
++----+----------+
+编写一个 SQL 查询，找出每个部门工资最高的员工。对于上述表，您的 SQL 查询应返回以下行（行的顺序无关紧要）。
+
++------------+----------+--------+
+| Department | Employee | Salary |
++------------+----------+--------+
+| IT         | Max      | 90000  |
+| IT         | Jim      | 90000  |
+| Sales      | Henry    | 80000  |
++------------+----------+--------+
+解释：
+
+Max 和 Jim 在 IT 部门的工资都是最高的，Henry 在销售部的工资最高。
+</code></pre></div>
+
+<h4 id="_12">解题方法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="err">我的错误写法</span>
+<span class="k">SELECT</span> 
+    <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Department</span><span class="p">,</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Employee</span><span class="p">,</span>
+    <span class="k">MAX</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">salary</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Salary</span>
+<span class="k">FROM</span> <span class="n">employee</span> <span class="n">e</span> 
+<span class="k">JOIN</span> <span class="n">department</span> <span class="n">d</span> 
+<span class="k">ON</span> <span class="n">e</span><span class="p">.</span><span class="n">departmentid</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">id</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Department</span><span class="p">,</span><span class="n">Employee</span><span class="p">,</span><span class="n">Salary</span><span class="p">;</span>
+
+<span class="o">#</span> <span class="err">正确写法</span>
+<span class="err">方法：使用</span> <span class="k">JOIN</span> <span class="err">和</span> <span class="k">IN</span> <span class="err">语句</span>
+<span class="k">SELECT</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Department</span><span class="p">,</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Employee</span><span class="p">,</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">salary</span> <span class="k">AS</span> <span class="n">Salary</span>
+<span class="k">FROM</span> <span class="n">employee</span> <span class="n">e</span>
+<span class="k">JOIN</span> <span class="n">department</span> <span class="n">d</span> <span class="k">ON</span> <span class="n">e</span><span class="p">.</span><span class="n">departmentid</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">id</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">departmentid</span> <span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">salary</span><span class="p">)</span> <span class="k">IN</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">departmentid</span><span class="p">,</span> <span class="k">MAX</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+    <span class="k">FROM</span> <span class="n">employee</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">departmentid</span>
+    <span class="p">)</span>
+<span class="p">;</span>
+</code></pre></div>
+
+<h2 id="180">180 连续出现的数字<a class="headerlink" href="#180" title="Permanent link">&para;</a></h2>
+<h4 id="_13">题目描述<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>编写一个 SQL 查询，查找所有至少连续出现三次的数字。
+
++----+-----+
+| Id | Num |
++----+-----+
+| 1  |  1  |
+| 2  |  1  |
+| 3  |  1  |
+| 4  |  2  |
+| 5  |  1  |
+| 6  |  2  |
+| 7  |  2  |
++----+-----+
+例如，给定上面的 Logs 表， 1 是唯一连续出现至少三次的数字。
+
++-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+</code></pre></div>
+
+<h4 id="_14">解题方法<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<h2 id="178">178 分数排名<a class="headerlink" href="#178" title="Permanent link">&para;</a></h2>
+<h4 id="_15">题目描述<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>编写一个 SQL 查询来实现分数排名。
+
+如果两个分数相同，则两个分数排名（Rank）相同。请注意，平分后的下一个名次应该是下一个连续的整数值。换句话说，名次之间不应该有“间隔”。
+
++----+-------+
+| Id | Score |
++----+-------+
+| 1  | 3.50  |
+| 2  | 3.65  |
+| 3  | 4.00  |
+| 4  | 3.85  |
+| 5  | 4.00  |
+| 6  | 3.65  |
++----+-------+
+例如，根据上述给定的 Scores 表，你的查询应该返回（按分数从高到低排列）：
+
++-------+------+
+| Score | Rank |
++-------+------+
+| 4.00  | 1    |
+| 4.00  | 1    |
+| 3.85  | 2    |
+| 3.65  | 3    |
+| 3.65  | 3    |
+| 3.50  | 4    |
++-------+------+
+重要提示：对于 MySQL 解决方案，如果要转义用作列名的保留字，可以在关键字之前和之后使用撇号。例如 `Rank`
+</code></pre></div>
+
+<h4 id="_16">解题方法<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="err">窗口函数</span> <span class="n">DENSE_RANK</span><span class="p">()</span>
+<span class="k">SELECT</span> 
+    <span class="n">score</span><span class="p">,</span>
+    <span class="n">DENSE_RANK</span><span class="p">()</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">score</span> <span class="k">DESC</span><span class="p">)</span> <span class="s1">&#39;Rank&#39;</span>
+<span class="k">FROM</span> <span class="n">scores</span><span class="p">;</span> 
+
+<span class="o">#</span> <span class="err">理解</span><span class="n">rank</span><span class="p">,</span> <span class="n">dense_rank</span><span class="p">,</span> <span class="n">row_number</span>
+
+<span class="o">#</span> <span class="err">窗口函数</span>
+</code></pre></div>
+
+<h2 id="_17"><strong><a href="https://leetcode-cn.com/problemset/database/?difficulty=%E5%9B%B0%E9%9A%BE">困难</a></strong><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h2 id="185">185. 部门工资前三高的所有员工<a class="headerlink" href="#185" title="Permanent link">&para;</a></h2>
+<h4 id="_18">题目描述<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<h4 id="_19">解题方法<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../python/python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" class="btn btn-neutral float-right" title="3.1 Python 学习路线">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../sql-basics/" class="btn btn-neutral" title="2.3 SQL Basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2020 - 2020 Xu's Blog.Keep it Simple and Stupid!</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../sql-basics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../python/python%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
