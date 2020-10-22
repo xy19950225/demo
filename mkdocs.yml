@@ -1,0 +1,61 @@
+# Project information
+site_name: My Notebook
+site_description: xy19950225 的学习笔记
+site_author: xy19950225
+site_url: https://xy19950225.github.io/
+
+
+# Repository
+repo_name: '/xy19950225/demo'
+repo_url: 'https://github.com/xy19950225/demo'
+
+# Theme
+theme:
+  name: material
+  palette:
+    accent: 'Pink'
+  feature:
+    tabs: false
+  #font:
+    #text: 'Ubuntu'
+    #code: 'Ubuntu Mono'
+  language: 'zh'
+
+extra:
+  search:
+    language: 'jp'
+
+# markdown_extensions
+markdown_extensions:
+  - toc:
+      permalink: True
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+
+# Copyright
+copyright: "Copyright © 2020 - 2020 Xu's Blog.Keep it Simple and Stupid!"
+
+
+# Page tree
+nav:
+  - 01. Introduction: index.md
+  - 02. SQL: 
+      - 2.1 SQL 学习路线: sql/sql学习路线.md
+      - 2.2 SQL 必知必会: sql/sql必知必会.md
+      - 2.3 SQL Basics: sql/sql-basics.md
+      - 2.4 SQL 练习: sql/sql练习.md
+  - 03. Python:
+      - 3.1 Python 学习路线: python/python学习路线.md
+      - 3.2 利用 Python 进行数据分析: python/利用python进行数据分析.md
+      - 3.3 Python Basics: python/python-basics.md
+      - 3.4 NumPy Basics: python/numpy-basics.md
+      - 3.5 Pandas Basics: python/pandas-basics.md
+  - 04. Machine Learning:
+      - 4.1 ML 学习路线: ml/ml学习路线.md
+      - 4.2 ML 理论: ml/ml理论.md
+      - 4.3 ML 实战: ml/ml实战.md
+      - 4.4 ML 实战 01: ml/ml实战-01 The Machine Learning landscape.md
+      - 4.5 ML 实战 02: ml/ml实战-02 End-to-end Machine Learning project.md
+      - 4.6 ML 实战 03: ml/ml实战-03 Classification.md
+
